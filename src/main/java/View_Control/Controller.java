@@ -44,9 +44,7 @@ public class Controller {
         for (int i = 0; i < ps_mathimata.size(); i++) {
             System.out.println(ps_mathimata.get(i).getID()+" "+ps_mathimata.get(i).getTitlos());
         }
-        System.out.println("Everything OK!");
-        
-        System.out.println("Everything successfull");
+           System.out.println("--EVERYTHINH SUCCESSFULL!!");
         
         
         
