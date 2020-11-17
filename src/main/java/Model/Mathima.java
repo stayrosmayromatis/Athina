@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 import java.util.ArrayList;
-/**
- *
- * @author Stavros
- */
+
 public class Mathima {
     private int ID;
     private String titlos;
@@ -17,6 +9,7 @@ public class Mathima {
     private Kathigitis kathigitis;
     private int wres;
     private ProgrammaSpoudwn ps;
+    private Dilwsi anikeiSe;
     private ArrayList<Eksetastiki> eksetastikes= new ArrayList<>(); 
 
     public Mathima(int ID, String titlos, String perigrafi, int Dm, Kathigitis kathigitis, int wres, ArrayList<Eksetastiki> eksetastikes,ProgrammaSpoudwn ps) {
@@ -36,7 +29,16 @@ public class Mathima {
         this.kathigitis = kathigitis;
         this.ps=ps;
     }
-
+    
+    public void setDilwsi (Dilwsi dilwsi) {
+        this.anikeiSe = dilwsi;
+    }
+    
+    public String toString()  {
+		return ("\nTo mathima " + ID + " anikei sth dilwsi me typiko eksamino : " 
+			+ anikeiSe.getAkadimaiko_eksamino());
+	}
+    
     public int getID() {
         return ID;
     }
@@ -102,6 +104,5 @@ public class Mathima {
     }
     
     
-    
-    
+
 }

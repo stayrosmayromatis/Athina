@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
-/**
- *
- * @author Stavros
- */
 public class Foititis extends Xristis{
     private String onoma;
     private String epwnymo;
@@ -98,10 +89,6 @@ public class Foititis extends Xristis{
     @Override
     public String toString() {
         return "Foititis{" + "onoma=" + onoma + ", epwnymo=" + epwnymo + ", email=" + email + ", tel=" + tel + ", address=" + address + ", typiko_eksa=" + typiko_eksa + ", Dm=" + Dm + '}';
-    }
-    
-    
-    
-    
+    } 
     
 }
