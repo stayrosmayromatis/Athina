@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Stavros
- */
 public class Eksetastiki {
     private String kwdikos;
     private String hmeromhnia;
@@ -49,7 +40,5 @@ public class Eksetastiki {
     // define return type
     public void getEksetastiki(Mathima mathima) 
     {}
-    
-    //define the dependency with Foititis.class
 
 }
