@@ -67,6 +67,10 @@ public class Controller {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
            }
+           d1.enrollTo(mathima.get(0));
+           d1.enrollTo(mathima.get(1));
+           d1.enrollTo(mathima.get(2));
+           d1.enrollTo(m1);
            d1.enrollTo(m2);
            g1.sendEnrollment(f1, d1);
            

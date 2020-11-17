@@ -50,8 +50,11 @@ public class Grammateia extends Xristis {
     {
         dilwseis.add(currentDilwsi);
         try {
-            FileWriter myWriter = new FileWriter("C:\\Users\\Stavros\\Desktop\\Enrollment.txt");
-            myWriter.write("AM foititi : "+ foititis.getUsername() +"\nTrexousa dilwsi : "+ currentDilwsi.getEnrolledCourses());
+            FileWriter myWriter = new FileWriter("C:\\Users\\kyriakos\\Desktop\\Enrollment.txt");
+            myWriter.write("AM foititi : "+ foititis.getUsername()+"\n");
+            for (int i = 0; i < currentDilwsi.getEnrolledCourses().size(); i++) {
+                myWriter.write(" ID: "+currentDilwsi.getEnrolledCourses().get(i).getID()+" Titlos: "+currentDilwsi.getEnrolledCourses().get(i).getTitlos()+"\n");
+            }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
