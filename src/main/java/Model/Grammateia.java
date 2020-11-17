@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,6 +13,9 @@ package Model;
 public class Grammateia extends Xristis {
     private String email;
     private String aithma;
+    private ArrayList<DiorthosiVathmologias> diorthoseisVathmologias =  new ArrayList<>();
+    //private ArrayList<Dilwsi> dilwseis =  new ArrayList<>();
+    
 
     public Grammateia(String username, String password) {
         super(username, password);
@@ -44,9 +48,28 @@ public class Grammateia extends Xristis {
         return "Grammateia{" + "email=" + email + ", aithma=" + aithma + '}';
     }
     
-    
-    
-    
+    public ArrayList<DiorthosiVathmologias> getDiorthoseisVathmologias()
+    {
+        return this.diorthoseisVathmologias;
+    }
+    /*
+    public void sendEnrollment(Foititis foititis,Dilwsi currentDilwsi)
+    {
+        //Edw kataxwreis thn dhlwsh kai grafeis ousiastika se arxeio to am foititi mazi 
+        //me kwdiko mathimatos kserw gw
+    }
+    */
+    public boolean createAithma(DiorthosiVathmologias dv){
+        if(dv != null)
+        {
+            diorthoseisVathmologias.add(dv);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
     
 }

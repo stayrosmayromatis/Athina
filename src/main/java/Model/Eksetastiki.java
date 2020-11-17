@@ -46,10 +46,6 @@ public class Eksetastiki {
         this.mathimata = mathimata;
     }
     
-    // define return type
-    public void getEksetastiki(Mathima mathima) 
-    {}
-    
-    //define the dependency with Foititis.class
+   
 
 }

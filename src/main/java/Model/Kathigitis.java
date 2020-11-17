@@ -55,7 +55,7 @@ public class Kathigitis extends Xristis{
         this.email = email;
     }
 
-    public boolean isDigital_signature() {
+    public boolean getDigital_signature() {
         return digital_signature;
     }
 

@@ -32,7 +32,13 @@ public class Foititis extends Xristis{
         this.typiko_eksa = typiko_eksa;
         this.Dm = Dm;
     }
-
+    /*
+    public Foititis getFoititis(int AM)
+    {
+        //Ψαχνω στο αρχείο και επιστρέφω ενα αντικείμενο με τις τιμές συμπληρωμένες.
+    }
+    */
+    
     public String getOnoma() {
         return onoma;
     }
