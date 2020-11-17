@@ -21,7 +21,7 @@ public class Controller {
         Kathigitis k1 = new Kathigitis("Ignatios Deligiannis", "H.O.P", "ignation@it.teithe.gr", true, "ignatios", "password");
         
         Foititis f1 = new Foititis("it174964","password","Kyriakos","Ouzounis","kyriakos.ouzounis@gmail.com","3939393","NOOOT 65",1,12);
-        Dilwsi d1 = new Dilwsi(1,12,12);
+        Dilwsi d1 = new Dilwsi(1,12,42);
         Grammateia g1 = new Grammateia("email","aitima","It","it");
         
         //ΟΡΙΖΩ ΛΙΣΤΑ ΜΑΘΗΜΑΤΩΝ 3 ΘΕΣΕΩΝ ΚΑΙ ΠΡΟΣΘΕΤΩ ΣΤΟ PS
@@ -67,6 +67,7 @@ public class Controller {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
            }
+           d1.enrollTo(m2);
            g1.sendEnrollment(f1, d1);
            
 

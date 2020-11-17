@@ -9,12 +9,15 @@ public class Dilwsi {
     private ArrayList<Mathima> lista_mathimatwn=new ArrayList<>();
     private int remainingDM;
     private Mathima afora;
+    private Foititis ftiaxnei;
 
     public Dilwsi(int akadimaiko_eksamino, int hmeromhnia, int remainingDM) {
         this.akadimaiko_eksamino = akadimaiko_eksamino;
         this.hmeromhnia = hmeromhnia;
         this.remainingDM = remainingDM;
     }
+    
+    
 
     public int getAkadimaiko_eksamino() {
         return akadimaiko_eksamino;
