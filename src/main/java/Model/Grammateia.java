@@ -1,11 +1,13 @@
 package Model;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Grammateia extends Xristis {
     private String email;
     private String aithma;
     private ArrayList<DiorthosiVathmologias> diorthoseisVathmologias =  new ArrayList<>();
-    //private ArrayList<Dilwsi> dilwseis =  new ArrayList<>();
+    private ArrayList<Dilwsi> dilwseis =  new ArrayList<>();
     
 
     public Grammateia(String username, String password) {
@@ -43,13 +45,21 @@ public class Grammateia extends Xristis {
     {
         return this.diorthoseisVathmologias;
     }
-    /*
+    
     public void sendEnrollment(Foititis foititis,Dilwsi currentDilwsi)
     {
-        //Edw kataxwreis thn dhlwsh kai grafeis ousiastika se arxeio to am foititi mazi 
-        //me kwdiko mathimatos kserw gw
+        dilwseis.add(currentDilwsi);
+        try {
+            FileWriter myWriter = new FileWriter("Enrollment.txt");
+            myWriter.write("AM foititi : "+ foititis.getUsername() +"\nTrexousa dilwsi : "+ currentDilwsi.getEnrolledCourses());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+      }
     }
-    */
+    
     public boolean createAithma(DiorthosiVathmologias dv){
         if(dv != null)
         {

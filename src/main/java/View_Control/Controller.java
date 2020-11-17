@@ -1,17 +1,23 @@
 package View_Control;
+import Model.Dilwsi;
 import View_Control.*;
 import Model.Foititis;
 import Model.Grammateia;
 import Model.Kathigitis;
 import Model.Mathima;
 import Model.ProgrammaSpoudwn;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Controller {
     public static void main(String[] args) {
         ProgrammaSpoudwn ps = new ProgrammaSpoudwn("PS 2020", "1/1/2020", "Tmhma Mhxanikwn Plhforofikhs kai Hlektronikwn Systhmatwn");
         Kathigitis k1 = new Kathigitis("Ignatios Deligiannis", "H.O.P", "ignation@it.teithe.gr", true, "ignatios", "password");
-
+        Foititis f1 = new Foititis("Kyriakos","Ouzounis","kyriakos.ouzounis@gmail.com","3939393","NOOOT 65",1,12,"It","it");
+        Dilwsi d1 = new Dilwsi(1,12,12);
+        Grammateia g1 = new Grammateia("email","aitima","It","it");
+        
         //ΟΡΙΖΩ ΛΙΣΤΑ ΜΑΘΗΜΑΤΩΝ 3 ΘΕΣΕΩΝ ΚΑΙ ΠΡΟΣΘΕΤΩ ΣΤΟ PS
         ArrayList<Mathima> mathima = new ArrayList<>(3);
         for (int i = 0; i <3; i++) {
@@ -41,8 +47,18 @@ public class Controller {
         }
            System.out.println("--EVERYTHINH SUCCESSFULL!!");
         
-        
-        
+           try {
+            File myObj = new File("C:\\Users\\kyriakos\\Desktop\\Enrollment.txt");
+                if (myObj.createNewFile()) {
+                  System.out.println("File created: " + myObj.getName());
+                } else {
+                  System.out.println("File already exists.");
+           }
+           } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+           }
+           g1.sendEnrollment(f1, d1);
+           
     }
-         
 }
