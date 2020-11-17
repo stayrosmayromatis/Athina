@@ -38,8 +38,11 @@ public class Dilwsi {
     }
     
     public Boolean isEnrolled(Mathima course) {
-        if (course != null) {
-            return true;
+        for (int i = 0; i < lista_mathimatwn.size(); i++) {
+            if(course.getID()==lista_mathimatwn.get(i).getID())
+            {
+                return true;
+            }
         }
         return false;
     }
