@@ -6,12 +6,17 @@ import Model.Grammateia;
 import Model.Kathigitis;
 import Model.Mathima;
 import Model.ProgrammaSpoudwn;
+<<<<<<< Updated upstream
 import java.io.File;
 import java.io.IOException;
+=======
+import java.io.FileNotFoundException;
+>>>>>>> Stashed changes
 import java.util.ArrayList;
 
 public class Controller {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        /*
         ProgrammaSpoudwn ps = new ProgrammaSpoudwn("PS 2020", "1/1/2020", "Tmhma Mhxanikwn Plhforofikhs kai Hlektronikwn Systhmatwn");
         Kathigitis k1 = new Kathigitis("Ignatios Deligiannis", "H.O.P", "ignation@it.teithe.gr", true, "ignatios", "password");
         Foititis f1 = new Foititis("Kyriakos","Ouzounis","kyriakos.ouzounis@gmail.com","3939393","NOOOT 65",1,12,"It","it");
@@ -46,6 +51,7 @@ public class Controller {
             System.out.println(ps_mathimata.get(i).getID()+" "+ps_mathimata.get(i).getTitlos());
         }
            System.out.println("--EVERYTHINH SUCCESSFULL!!");
+<<<<<<< Updated upstream
         
            try {
             File myObj = new File("C:\\Users\\kyriakos\\Desktop\\Enrollment.txt");
@@ -60,5 +66,13 @@ public class Controller {
            }
            g1.sendEnrollment(f1, d1);
            
+=======
+        */
+        Foititis f1 = new Foititis("it174896", "password");
+        Foititis f2=f1.getFoititis("it175099");
+        System.out.println(f2);
+        
+        
+>>>>>>> Stashed changes
     }
 }

@@ -1,4 +1,8 @@
 package Model;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 
 public class Foititis extends Xristis{
     private String onoma;
@@ -13,7 +17,7 @@ public class Foititis extends Xristis{
         super(username, password);
     }
     
-    public Foititis(String onoma, String epwnymo, String email, String tel, String address, int typiko_eksa, int Dm, String username, String password) {
+    public Foititis(String username, String password,String onoma, String epwnymo, String email, String tel, String address, int typiko_eksa, int Dm) {
         super(username, password);
         this.onoma = onoma;
         this.epwnymo = epwnymo;
@@ -23,12 +27,32 @@ public class Foititis extends Xristis{
         this.typiko_eksa = typiko_eksa;
         this.Dm = Dm;
     }
-    /*
-    public Foititis getFoititis(int AM)
+   
+    public Foititis getFoititis(String AM) throws FileNotFoundException
     {
-        //Ψαχνω στο αρχείο και επιστρέφω ενα αντικείμενο με τις τιμές συμπληρωμένες.
+        try
+        {
+            File foitites = new File("C:\\Users\\Stavros\\Desktop\\foitites.txt");
+            Scanner fileScanner = new Scanner(foitites);
+            while (fileScanner.hasNextLine())
+            {
+                String line = fileScanner.nextLine();
+                String parts[]=line.split(" ");
+                if(parts[0].equals(AM))
+                    return new Foititis(parts[0],parts[1],parts[2], parts[3], parts[4], parts[5], parts[6], Integer.parseInt(parts[7]),Integer.parseInt(parts[8]));
+            } 
+            fileScanner.close();
+            return null;
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("File Not Found!");
+            e.printStackTrace();
+            return null;
+
+        }
     }
-    */
+    
     
     public String getOnoma() {
         return onoma;
