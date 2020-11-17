@@ -63,5 +63,3 @@ public class Grammateia extends Xristis {
     }
     
     }  
-    
-}

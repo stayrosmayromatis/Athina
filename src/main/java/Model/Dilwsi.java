@@ -9,7 +9,6 @@ public class Dilwsi {
     private ArrayList<Mathima> lista_mathimatwn=new ArrayList<>();
     private int remainingDM;
     private Mathima afora;
-    private ArrayList<Mathima> mathimata = new ArrayList<>();
 
     public Dilwsi(int akadimaiko_eksamino, int hmeromhnia, int remainingDM) {
         this.akadimaiko_eksamino = akadimaiko_eksamino;
@@ -27,7 +26,8 @@ public class Dilwsi {
         
     public void enrollTo(Mathima course) {
         this.afora = course;
-        mathimata.add(course);
+        this.remainingDM += course.getDm();
+        lista_mathimatwn.add(course);
     }
     
     public String toString() {
@@ -46,10 +46,12 @@ public class Dilwsi {
     
     public void unenrollFrom(Mathima course) {
         this.afora = null;
+        this.remainingDM -= course.getDm();
+        lista_mathimatwn.remove(course);
     }
     
     public ArrayList<Mathima> getEnrolledCourses() {
-        return mathimata;
+        return lista_mathimatwn;
     }
    
 }
