@@ -38,8 +38,11 @@ public class Foititis extends Xristis{
             {
                 String line = fileScanner.nextLine();
                 String parts[]=line.split(" ");
-                if(parts[0].equals(AM))
-                    return new Foititis(parts[0],parts[1],parts[2], parts[3], parts[4], parts[5], parts[6], Integer.parseInt(parts[7]),Integer.parseInt(parts[8]));
+                if(parts[0].equalsIgnoreCase(AM))
+                {    
+                    parts[6]=parts[6].replace("_", " ");
+                    return new Foititis(parts[0],parts[1],parts[2],parts[3],parts[4],parts[5],parts[6],Integer.parseInt(parts[7]),Integer.parseInt(parts[8]));   
+                }    
             } 
             fileScanner.close();
             return null;

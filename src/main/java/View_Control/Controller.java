@@ -71,11 +71,8 @@ public class Controller {
            
 
 
-        /*
-        Foititis f1 = new Foititis("it174896", "password");
         Foititis f2=f1.getFoititis("it175099");
         System.out.println(f2);
-        */
 
     }
 }

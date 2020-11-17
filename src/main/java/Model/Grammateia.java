@@ -51,6 +51,7 @@ public class Grammateia extends Xristis {
         dilwseis.add(currentDilwsi);
         try {
             FileWriter myWriter = new FileWriter("C:\\Users\\Stavros\\Desktop\\Enrollment.txt");
+            
             myWriter.write("AM foititi : "+ foititis.getUsername() +"\nTrexousa dilwsi : "+ currentDilwsi.getEnrolledCourses());
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
