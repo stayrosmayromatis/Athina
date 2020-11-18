@@ -1,6 +1,5 @@
-package View_Control;
+package Control;
 import Model.Dilwsi;
-import View_Control.*;
 import Model.Foititis;
 import Model.Grammateia;
 import Model.Kathigitis;
