@@ -9,7 +9,7 @@
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
-            <version>RELEASE82</version>
+            <version>RELEASE121</version>
             <type>jar</type>
         </dependency>
     </dependencies>
@@ -17,5 +17,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-    </properties>
+    </properties> 
+    
+    <!-- <repositories>
+        <repository>
+          <id>netbeans</id>
+          <name>Netbeans rep</name>
+          <url>http://bits.netbeans.org/maven2/</url>
+        </repository>
+    </repositories> -->
+        
 </project>
