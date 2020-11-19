@@ -77,7 +77,7 @@ public class Kathigitis extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Untitled-1.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Untitled-1.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel_UpLayout = new javax.swing.GroupLayout(jPanel_Up);
         jPanel_Up.setLayout(jPanel_UpLayout);

@@ -97,7 +97,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Resources/ihu_logo.png__200x200_q75_background-#fff_subsampling-2.png"/>
+                  <Image iconType="3" name="/ihu_logo.png__200x200_q75_background-#fff_subsampling-2.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
@@ -207,7 +207,7 @@
             <Component class="javax.swing.JLabel" name="user_icon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Resources/user_30px.png"/>
+                  <Image iconType="3" name="/user_30px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -219,7 +219,7 @@
             <Component class="javax.swing.JLabel" name="password_icon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Resources/unlock_26px_1.png"/>
+                  <Image iconType="3" name="/unlock_26px_1.png"/>
                 </Property>
               </Properties>
               <Constraints>

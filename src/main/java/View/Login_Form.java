@@ -49,7 +49,7 @@ public class Login_Form extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
         ihu_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ihu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ihu_logo.png__200x200_q75_background-#fff_subsampling-2.png"))); // NOI18N
+        ihu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ihu_logo.png__200x200_q75_background-#fff_subsampling-2.png"))); // NOI18N
         ihu_icon.setToolTipText("");
 
         ATHINA.setBackground(new java.awt.Color(0, 51, 102));
@@ -118,10 +118,10 @@ public class Login_Form extends javax.swing.JFrame {
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 142, 220, 10));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 192, 220, 10));
 
-        user_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/user_30px.png"))); // NOI18N
+        user_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user_30px.png"))); // NOI18N
         jPanel3.add(user_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 105, 30, 30));
 
-        password_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/unlock_26px_1.png"))); // NOI18N
+        password_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unlock_26px_1.png"))); // NOI18N
         jPanel3.add(password_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 153, -1, -1));
 
         Exit.setBackground(new java.awt.Color(255, 255, 255));
