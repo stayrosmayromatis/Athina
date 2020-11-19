@@ -12,7 +12,7 @@ package View;
     import java.io.IOException;
     import java.util.logging.Level;
     import java.util.logging.Logger;
-    import Model.Foititis;
+    import Model.*;
 /**
  *
  * @author User
@@ -200,20 +200,17 @@ public class Login_Form extends javax.swing.JFrame {
         try {
             String jPassword = Password.getText();
             String jUsername = Username.getText();
-            Controller con;
-            con = new Controller();
-            Object obj = null;
-            obj = con.verifyUser(jUsername, jPassword);    
+            Controller con = new Controller();
+            Object obj = con.verifyUser(jUsername, jPassword);    
           
             //Foititis
-            if (obj instanceof Foititis)
+            if (obj instanceof Model.Foititis)
             {
                 Username.setText(null);
                 Password.setText(null);
                 
                 this.toBack();
-                
-                View.Foititis foititis = new View.Foititis((Model.Foititis)(obj));
+                View.Foititis foititis = new View.Foititis((Model.Foititis)obj);
                 foititis.setVisible(true);
                 foititis.toFront();
             }
@@ -224,18 +221,18 @@ public class Login_Form extends javax.swing.JFrame {
                 Password.setText(null);
                 
                 this.toBack();
-                View.Kathigitis kathigitis = new View.Kathigitis();
+                View.Kathigitis kathigitis = new View.Kathigitis((Model.Kathigitis)(obj));
                 kathigitis.setVisible(true);
                 kathigitis.toFront();
             }
             //Grammateia
-            else if (obj instanceof Grammateia)
+            else if (obj instanceof Model.Grammateia)
             {
                 Username.setText(null);
                 Password.setText(null);
                 
                 this.toBack();
-                View.Grammateia grammateia = new View.Grammateia();
+                View.Grammateia grammateia = new View.Grammateia((Model.Grammateia)(obj));
                 grammateia.setVisible(true);
                 grammateia.toFront();
             }

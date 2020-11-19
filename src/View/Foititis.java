@@ -27,10 +27,16 @@ import java.util.logging.Logger;
  * @author User
  */
 public class Foititis extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Foititis
-     */
+    public void loadDefaultValues(Model.Foititis foititis)
+    {
+        name.setText(foititis.getOnoma());
+        last_name.setText(foititis.getEpwnymo());
+        email.setText(foititis.getEmail());
+        phone.setText(foititis.getTel());
+        address.setText(foititis.getAddress());
+        semester.setText(""+foititis.getTypiko_eksa()+"");
+        dm.setText(""+foititis.getDm()+"");
+    }
     public Foititis() throws IOException {
         initComponents();
         Stoixeia_Foititi sf = new Stoixeia_Foititi();
@@ -39,7 +45,7 @@ public class Foititis extends javax.swing.JFrame {
 
     Foititis(Model.Foititis foititis) {
         initComponents();
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.loadDefaultValues(foititis);
         
     }
         /**
