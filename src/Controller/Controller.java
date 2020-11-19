@@ -12,7 +12,7 @@ public class Controller {
     {
         try
         {
-            File foitites = new File("C:\\Users\\Stavros\\Desktop\\accounts.txt");
+            File foitites = new File("C:\\Users\\kyriakos\\Desktop\\accounts.txt");
             Scanner accountScanner = new Scanner(foitites);
             while (accountScanner.hasNextLine())
             {
@@ -22,7 +22,7 @@ public class Controller {
                 {    
                     if(Integer.parseInt(parts[2])==1)
                     {      
-                        File grammateia = new File("C:\\Users\\Stavros\\Desktop\\grammateia.txt");
+                        File grammateia = new File("C:\\Users\\kyriakos\\Desktop\\grammateia.txt");
                         Scanner initScanner = new Scanner(grammateia);
                         line = initScanner.nextLine();   
                         String loads[]=line.split(" ");
@@ -34,7 +34,7 @@ public class Controller {
                     else if(Integer.parseInt(parts[2])==2)
                     {
                         
-                        File foit = new File("C:\\Users\\Stavros\\Desktop\\foitites.txt");
+                        File foit = new File("C:\\Users\\kyriakos\\Desktop\\foitites.txt");
                         Scanner initScanner = new Scanner(foit);
                         while(initScanner.hasNextLine())
                         {
@@ -52,7 +52,7 @@ public class Controller {
                     else if(Integer.parseInt(parts[2])==3)
                     {
                         
-                        File kathigites = new File("C:\\Users\\Stavros\\Desktop\\kathigites.txt");
+                        File kathigites = new File("C:\\Users\\kyriakos\\Desktop\\kathigites.txt");
                         Scanner initScanner = new Scanner(kathigites);
                         while(initScanner.hasNextLine())
                         {

@@ -7,11 +7,18 @@ package View;
     import java.awt.event.WindowEvent;
     import org.xml.sax.Attributes;
     import static javax.swing.JOptionPane.*;
+    import Controller.Controller;
+    import java.io.FileNotFoundException;
+    import java.io.IOException;
+    import java.util.logging.Level;
+    import java.util.logging.Logger;
+    import Model.Foititis;
 /**
  *
  * @author User
  */
 public class Login_Form extends javax.swing.JFrame {
+    private Object View;
 
     /**
      * Creates new form Login_Form
@@ -190,43 +197,55 @@ public class Login_Form extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordFocusGained
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
-        String jPassword = Password.getText();
-        String jUsername = Username.getText();
-        //Foititis
-        if (jPassword.contains("1234") && (jUsername.contains("Fani")))
-        {
-            Username.setText(null);
-            Password.setText(null);
-            
-            this.toBack();
-            Foititis Info = new Foititis();
-            Info.setVisible(true);
-            Info.toFront();
+        try {
+            String jPassword = Password.getText();
+            String jUsername = Username.getText();
+            Controller con;
+            con = new Controller();
+            Object obj = null;
+            obj = con.verifyUser(jUsername, jPassword);    
+          
+            //Foititis
+            if (obj instanceof Foititis)
+            {
+                Username.setText(null);
+                Password.setText(null);
+                
+                this.toBack();
+                
+                View.Foititis foititis = new View.Foititis((Model.Foititis)(obj));
+                foititis.setVisible(true);
+                foititis.toFront();
+            }
+            //Kathigitis
+            else if (obj instanceof Kathigitis)
+            {
+                Username.setText(null);
+                Password.setText(null);
+                
+                this.toBack();
+                View.Kathigitis kathigitis = new View.Kathigitis();
+                kathigitis.setVisible(true);
+                kathigitis.toFront();
+            }
+            //Grammateia
+            else if (obj instanceof Grammateia)
+            {
+                Username.setText(null);
+                Password.setText(null);
+                
+                this.toBack();
+                View.Grammateia grammateia = new View.Grammateia();
+                grammateia.setVisible(true);
+                grammateia.toFront();
+            }
+            else
+                showMessageDialog(null, "Not a registered user", "Error", ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //Kathigitis
-        else if (jPassword.contains("1234") && (jUsername.contains("Stauros")))
-        {
-            Username.setText(null);
-            Password.setText(null);
-            
-            this.toBack();            
-            Kathigitis Info = new Kathigitis();
-            Info.setVisible(true);
-            Info.toFront();
-        }
-        //Grammateia
-        else if (jPassword.contains("1234") && (jUsername.contains("Kuriakos")))
-        {
-            Username.setText(null);
-            Password.setText(null);
-            
-            this.toBack();
-            Grammateia Info = new Grammateia();
-            Info.setVisible(true);
-            Info.toFront();
-        }
-        else
-            showMessageDialog(null, "Not a registered user", "Error", ERROR_MESSAGE);
     }//GEN-LAST:event_LogInActionPerformed
 
     /**

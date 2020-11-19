@@ -6,7 +6,21 @@
 package View;
 
 //import java.awt.Toolkit;
+import java.awt.List;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -17,11 +31,16 @@ public class Foititis extends javax.swing.JFrame {
     /**
      * Creates new form Foititis
      */
-    public Foititis() {
+    public Foititis() throws IOException {
         initComponents();
-        
         Stoixeia_Foititi sf = new Stoixeia_Foititi();
-        jDesktopPane1.add(sf).setVisible(true);
+                
+    }
+
+    Foititis(Model.Foititis foititis) {
+        initComponents();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
         /**
      * This method is called from within the constructor to initialize the form.
@@ -47,7 +66,21 @@ public class Foititis extends javax.swing.JFrame {
         Dhlwseis_F = new javax.swing.JLabel();
         Log_out = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        last_name = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
+        phone = new javax.swing.JLabel();
+        address = new javax.swing.JLabel();
+        semester = new javax.swing.JLabel();
+        dm = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -162,7 +195,7 @@ public class Foititis extends javax.swing.JFrame {
             .addGroup(Programma_SpoudwnLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Programma_Spoudwn_F, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                .addComponent(Programma_Spoudwn_F, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
         );
         Programma_SpoudwnLayout.setVerticalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,18 +288,91 @@ public class Foititis extends javax.swing.JFrame {
 
         getContentPane().add(jPanel_Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 150, 490));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+        jLabel2.setText("Όνομα :");
+
+        jLabel3.setText("Επίθετο :");
+
+        jLabel4.setText("Email :");
+
+        jLabel5.setText("Τηλέφωνο :");
+
+        jLabel6.setText("Διεύθυνση :");
+
+        jLabel7.setText("Τυπικό Εξάμηνο :");
+
+        jLabel8.setText("Διδακτικές Μονάδες :");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)))
+                        .addGap(4, 4, 4)
+                        .addComponent(name)
+                        .addGap(4, 4, 4)
+                        .addComponent(last_name)
+                        .addGap(4, 4, 4)
+                        .addComponent(email)
+                        .addGap(4, 4, 4)
+                        .addComponent(phone)
+                        .addGap(4, 4, 4)
+                        .addComponent(address))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(dm))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(semester)))
+                .addContainerGap(580, Short.MAX_VALUE))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(name))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(last_name))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(email))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(phone))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(address))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(semester))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(dm))
+                .addGap(0, 274, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 710, 490));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 710, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -288,21 +394,15 @@ public class Foititis extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel_UpMouseDragged
 
     private void StoixeiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StoixeiaMouseClicked
-        jDesktopPane1.removeAll();
-        Stoixeia_Foititi sf = new Stoixeia_Foititi();
-        jDesktopPane1.add(sf).setVisible(true);
+                    
     }//GEN-LAST:event_StoixeiaMouseClicked
 
     private void Programma_SpoudwnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Programma_SpoudwnMouseClicked
-        jDesktopPane1.removeAll(); 
-        Programma_Spoudwn ps = new Programma_Spoudwn();
-        jDesktopPane1.add(ps).setVisible(true);
+        
     }//GEN-LAST:event_Programma_SpoudwnMouseClicked
 
     private void DhlwseisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DhlwseisMouseClicked
-        jDesktopPane1.removeAll();
-        Dilwseis_F d = new Dilwseis_F();
-        jDesktopPane1.add(d).setVisible(true);
+        
     }//GEN-LAST:event_DhlwseisMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -349,7 +449,11 @@ public class Foititis extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Foititis().setVisible(true);
+                try {
+                    new Foititis().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Foititis.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -363,14 +467,28 @@ public class Foititis extends javax.swing.JFrame {
     private javax.swing.JLabel Programma_Spoudwn_F;
     private javax.swing.JPanel Stoixeia;
     private javax.swing.JLabel Stoixeia_F;
+    private javax.swing.JLabel address;
+    private javax.swing.JLabel dm;
+    private javax.swing.JLabel email;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel_Left;
     private javax.swing.JPanel jPanel_Up;
+    private javax.swing.JLabel last_name;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel phone;
+    private javax.swing.JLabel semester;
     // End of variables declaration//GEN-END:variables
 
     
