@@ -18,21 +18,19 @@ import Controller.*;
  */
 public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Diorthosi_Vathmologias
-     */
     private Model.Kathigitis mathima;
     DefaultListModel dm = new DefaultListModel();
-    private Model.Kathigitis kathigitis;
+    private Model.Kathigitis kathigitis=null;
 
-    public Diorthosi_Vathmologias() {
+    public Diorthosi_Vathmologias(Model.Kathigitis kathigitis) {
         initComponents();
-        
+        this.kathigitis=kathigitis;
+        /*
         for (int i = 0; i < kathigitis.getMathimata().size(); i++) {
             mathima = kathigitis.getMathimata().get(i);     
             jList1.setModel(dm);
             dm.addElement(mathima);
-        }
+        }*/
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);

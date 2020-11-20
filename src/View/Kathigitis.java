@@ -342,7 +342,7 @@ public class Kathigitis extends javax.swing.JFrame {
 
     private void DiorthotikesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiorthotikesMouseClicked
         jDesktopPane1.removeAll();
-        Diorthosi_Vathmologias dv = new Diorthosi_Vathmologias();
+        Diorthosi_Vathmologias dv = new Diorthosi_Vathmologias(this.kathigitis);
         jDesktopPane1.add(dv).setVisible(true);
     }//GEN-LAST:event_DiorthotikesMouseClicked
 
