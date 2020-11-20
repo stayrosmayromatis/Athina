@@ -18,20 +18,21 @@ import Controller.*;
  */
 public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
-    private Model.Kathigitis mathima;
-    DefaultListModel<Model.Mathima> model;
+    DefaultListModel<String> model;
     private Model.Kathigitis kathigitis=null;
-
+    ArrayList<Model.Mathima> mathima= new ArrayList<>();
+    
     public Diorthosi_Vathmologias(Model.Kathigitis kathigitis) {
         initComponents();
-        model= new DefaultListModel<Model.Mathima>();
+        model= new DefaultListModel<String>();
         this.kathigitis=kathigitis;
         Controller_US_06 con6= new Controller_US_06();
-        for (int i = 0; i < con6.getMathimataOfKathigitis(kathigitis).size(); i++) {
-            //mathima = kathigitis.getMathimata().get(i);       
-            //model.addElement(mathima);
+        mathima=con6.getMathimataOfKathigitis(kathigitis);
+        for (int i = 0; i < mathima.size(); i++) {       
+            model.addElement(mathima.get(i).getTitlos());
         }
         jList1.setModel(model);
+        jList1.setSelectedIndex(0);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
