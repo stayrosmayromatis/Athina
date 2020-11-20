@@ -4,6 +4,21 @@
  * and open the template in the editor.
  */
 package View;
+import java.awt.List;
+import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -25,6 +40,18 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
         bi.setNorthPane(null);
     }
 
+    public void loadDefaultValues(Model.Kathigitis kathigitis)
+    {
+        name.setText(kathigitis.getOnoma());
+        speciality.setText(kathigitis.getEidikotita());
+        Email.setText(kathigitis.getEmail());
+        dig_sign.setText(""+kathigitis.getDigital_signature()+"");
+    }
+    
+    public Stoixeia_Kathigiti(Model.Kathigitis kathigitis) {
+        initComponents();
+        this.loadDefaultValues(kathigitis);   
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,10 +64,13 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         Stoixeia_K = new javax.swing.JLabel();
         onoma = new javax.swing.JLabel();
-        epwnumo = new javax.swing.JLabel();
         eidikothta = new javax.swing.JLabel();
         email = new javax.swing.JLabel();
         digital_signature = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        speciality = new javax.swing.JLabel();
+        Email = new javax.swing.JLabel();
+        dig_sign = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(710, 490));
@@ -49,8 +79,6 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
         Stoixeia_K.setText("Στοιχεία Καθηγητή:");
 
         onoma.setText("'Ονομα:");
-
-        epwnumo.setText("Επώνυμο:");
 
         eidikothta.setText("Ειδικότητα:");
 
@@ -66,12 +94,23 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Stoixeia_K)
-                    .addComponent(onoma)
-                    .addComponent(epwnumo)
-                    .addComponent(eidikothta)
-                    .addComponent(email)
-                    .addComponent(digital_signature))
-                .addContainerGap(565, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(onoma)
+                        .addGap(18, 18, 18)
+                        .addComponent(name))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(eidikothta)
+                        .addGap(18, 18, 18)
+                        .addComponent(speciality))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(email)
+                        .addGap(18, 18, 18)
+                        .addComponent(Email))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(digital_signature)
+                        .addGap(18, 18, 18)
+                        .addComponent(dig_sign)))
+                .addContainerGap(567, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,16 +118,22 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(Stoixeia_K)
                 .addGap(18, 18, 18)
-                .addComponent(onoma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(epwnumo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eidikothta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(email)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(digital_signature)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(onoma)
+                    .addComponent(name))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eidikothta)
+                    .addComponent(speciality))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email)
+                    .addComponent(Email))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dig_sign)
+                    .addComponent(digital_signature))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,7 +145,7 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -109,12 +154,15 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Email;
     private javax.swing.JLabel Stoixeia_K;
+    private javax.swing.JLabel dig_sign;
     private javax.swing.JLabel digital_signature;
     private javax.swing.JLabel eidikothta;
     private javax.swing.JLabel email;
-    private javax.swing.JLabel epwnumo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel name;
     private javax.swing.JLabel onoma;
+    private javax.swing.JLabel speciality;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,7 +26,8 @@ public class Controller_US_06 {
     /*
     *Οταν περνιέται όλο το αντικείμενο του καθηγητή
     *Τοτε επιστρέφεται όλο το ArrayList με τα μαθήματα του
-    *Αρα πρέπει να επεξεργαστεί στο UI όλο το arraylist ώστε να 
+    *Αρα πρέπει να επεξεργαστταν περνιέται όλο το αντικείμενο του καθηγητή
+    *Τοτε επιστρέφεται όλο το ArrayList με τα μαεί στο UI όλο το arraylist ώστε να 
     *Εμφανιστεί ο Τίτλος και ο Κωδικός (με ενα for και χρήση .get())
     */
     public ArrayList<Mathima> getMathimataOfKathigitis(Kathigitis kathigitis)

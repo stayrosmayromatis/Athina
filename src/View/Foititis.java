@@ -39,8 +39,7 @@ public class Foititis extends javax.swing.JFrame {
     }
     public Foititis() throws IOException {
         initComponents();
-        Stoixeia_Foititi sf = new Stoixeia_Foititi();
-                
+        Stoixeia_Foititi sf = new Stoixeia_Foititi();        
     }
 
     public Foititis(Model.Foititis foititis) {

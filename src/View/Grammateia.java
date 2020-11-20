@@ -15,6 +15,7 @@ public class Grammateia extends javax.swing.JFrame {
     /**
      * Creates new form Grammateia
      */
+    private Model.Grammateia grammateia = null;
     public Grammateia() {
         initComponents();
         
@@ -22,8 +23,12 @@ public class Grammateia extends javax.swing.JFrame {
         jDesktopPane1.add(sg).setVisible(true);
     }
 
-    Grammateia(Model.Grammateia grammateia) {
+    public Grammateia(Model.Grammateia grammateia) {
         initComponents();
+        this.grammateia = grammateia;
+        jDesktopPane1.removeAll();
+        Stoixeia_Grammateia sk = new Stoixeia_Grammateia(grammateia);
+        jDesktopPane1.add(sk).setVisible(true);
     }
 
     /**
@@ -336,7 +341,7 @@ public class Grammateia extends javax.swing.JFrame {
 
     private void StoixeiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StoixeiaMouseClicked
         jDesktopPane1.removeAll();
-        Stoixeia_Grammateia sg = new Stoixeia_Grammateia();
+        Stoixeia_Grammateia sg = new Stoixeia_Grammateia(grammateia);
         jDesktopPane1.add(sg).setVisible(true);
     }//GEN-LAST:event_StoixeiaMouseClicked
 

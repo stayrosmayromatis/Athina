@@ -25,7 +25,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jPanel1" pref="483" max="32767" attributes="0"/>
+              <Component id="jPanel1" pref="491" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -49,13 +49,28 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Stoixeia_K" min="-2" max="-2" attributes="0"/>
-                      <Component id="onoma" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="epwnumo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="eidikothta" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="email" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="digital_signature" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="onoma" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="name" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="eidikothta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="speciality" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="email" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="Email" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="digital_signature" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dig_sign" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="565" max="32767" attributes="0"/>
+                  <EmptySpace pref="567" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -65,16 +80,26 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Stoixeia_K" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="onoma" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="epwnumo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="eidikothta" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="email" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="digital_signature" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="327" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="onoma" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="eidikothta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="speciality" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Email" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="dig_sign" min="-2" max="-2" attributes="0"/>
+                      <Component id="digital_signature" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="335" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,11 +118,6 @@
             <Property name="text" type="java.lang.String" value="&apos;&#x39f;&#x3bd;&#x3bf;&#x3bc;&#x3b1;:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="epwnumo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&#x395;&#x3c0;&#x3ce;&#x3bd;&#x3c5;&#x3bc;&#x3bf;:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="eidikothta">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x395;&#x3b9;&#x3b4;&#x3b9;&#x3ba;&#x3cc;&#x3c4;&#x3b7;&#x3c4;&#x3b1;:"/>
@@ -112,6 +132,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Digital Signature:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="name">
+        </Component>
+        <Component class="javax.swing.JLabel" name="speciality">
+        </Component>
+        <Component class="javax.swing.JLabel" name="Email">
+        </Component>
+        <Component class="javax.swing.JLabel" name="dig_sign">
         </Component>
       </SubComponents>
     </Container>

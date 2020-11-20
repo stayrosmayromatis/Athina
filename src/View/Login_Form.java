@@ -215,7 +215,7 @@ public class Login_Form extends javax.swing.JFrame {
                 foititis.toFront();
             }
             //Kathigitis
-            else if (obj instanceof Kathigitis)
+            else if (obj instanceof Model.Kathigitis)
             {
                 Username.setText(null);
                 Password.setText(null);

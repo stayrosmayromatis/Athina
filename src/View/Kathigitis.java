@@ -4,6 +4,20 @@
  * and open the template in the editor.
  */
 package View;
+import java.awt.List;
+import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -16,6 +30,7 @@ public class Kathigitis extends javax.swing.JFrame {
     /**
      * Creates new form Kathigitis
      */
+    private Model.Kathigitis kathigitis = null;
     public Kathigitis() {
         initComponents();
         
@@ -23,10 +38,15 @@ public class Kathigitis extends javax.swing.JFrame {
         jDesktopPane1.add(sk).setVisible(true);
     }
 
-    Kathigitis(Model.Kathigitis kathigitis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Kathigitis(Model.Kathigitis kathigitis) {
+        initComponents();
+        this.kathigitis = kathigitis;
+        jDesktopPane1.removeAll();
+        Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti(kathigitis);
+        jDesktopPane1.add(sk).setVisible(true);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -299,7 +319,7 @@ public class Kathigitis extends javax.swing.JFrame {
 
     private void StoixeiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StoixeiaMouseClicked
         jDesktopPane1.removeAll();
-        Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti();
+        Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti(kathigitis);
         jDesktopPane1.add(sk).setVisible(true);
     }//GEN-LAST:event_StoixeiaMouseClicked
 
@@ -362,6 +382,8 @@ public class Kathigitis extends javax.swing.JFrame {
                 new Kathigitis().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
