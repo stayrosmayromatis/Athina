@@ -33,7 +33,7 @@ public class Controller_US_06 {
     public ArrayList<Mathima> getMathimataOfKathigitis(Kathigitis kathigitis)
     {
         ArrayList<Model.Mathima> mathimata_kathigiti= new ArrayList<>();
-        ProgrammaSpoudwn ps = new ProgrammaSpoudwn("DIPAE PROGRAMM", "1/1/2020", "Tmhma Mhxaniwn Plhroforikhs");
+        ProgrammaSpoudwn ps = new ProgrammaSpoudwn("Tmhma Mhxanikwn Plhroforikhs DI.PA.E", "1/9/2019", "Tmhma Mhxaniwn Plhroforikhs");
         Mathima prog1 =new Mathima(1510, "Prog_1", kathigitis, ps);
         //Θετω για κάθε μάθημα διαθέσιμες εξεταστικές περιόδους
         Mathima prog2 =new Mathima(1511, "Prog_2", kathigitis, ps);
