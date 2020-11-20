@@ -19,25 +19,27 @@ import Controller.*;
 public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
     private Model.Kathigitis mathima;
-    DefaultListModel dm = new DefaultListModel();
+    DefaultListModel<Model.Mathima> model;
     private Model.Kathigitis kathigitis=null;
 
     public Diorthosi_Vathmologias(Model.Kathigitis kathigitis) {
         initComponents();
+        model= new DefaultListModel<Model.Mathima>();
         this.kathigitis=kathigitis;
-        /*
-        for (int i = 0; i < kathigitis.getMathimata().size(); i++) {
-            mathima = kathigitis.getMathimata().get(i);     
-            jList1.setModel(dm);
-            dm.addElement(mathima);
-        }*/
+        Controller_US_06 con6= new Controller_US_06();
+        for (int i = 0; i < con6.getMathimataOfKathigitis(kathigitis).size(); i++) {
+            //mathima = kathigitis.getMathimata().get(i);       
+            //model.addElement(mathima);
+        }
+        jList1.setModel(model);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-    
-    
 
+    Diorthosi_Vathmologias() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
