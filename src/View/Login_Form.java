@@ -18,7 +18,7 @@ package View;
  * @author User
  */
 public class Login_Form extends javax.swing.JFrame {
-    private Object View;
+    //private Object View;
 
     /**
      * Creates new form Login_Form

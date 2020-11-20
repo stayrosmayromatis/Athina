@@ -70,7 +70,9 @@ public class Controller_US_06 {
         vathScanner.close();
         return returnedList;
     }
-    
+    /*Τα αντικείμενα που πρέπει να περαστούν ως ορίσματα υπάρχουν στο UI σε μορφή ArrayLists
+    * Άρα τα περνάς επιλέγοντας την κατάλληλη θέση της ArrayList
+    */
     public void EisagogiDiorthosisVathmologias(Kathigitis kathigitis,Mathima mathima,Foititis foititis,Double Palia_vathm,Double Nea_vathm,Eksetastiki eks)
     {
             dv=new DiorthosiVathmologias(foititis.getUsername(), kathigitis, mathima, Palia_vathm, Nea_vathm, kathigitis.getDigital_signature(), eks.getKwdikos());
