@@ -34,7 +34,7 @@ public class Foititis extends Xristis{
     {
         try
         {
-            File foitites = new File("C:\\Users\\Stavros\\Desktop\\foitites.txt");
+            File foitites = new File("C:\\Users\\kyriakos\\Desktop\\foitites.txt");
             Scanner fileScanner = new Scanner(foitites);
             while (fileScanner.hasNextLine())
             {

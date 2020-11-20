@@ -33,12 +33,32 @@ public class Controller_US_06 {
     public ArrayList<Mathima> getMathimataOfKathigitis(Kathigitis kathigitis)
     {
         ArrayList<Model.Mathima> mathimata_kathigiti= new ArrayList<>();
+        ArrayList<Eksetastiki> prog1_ekse= new ArrayList<>();
+        ArrayList<Eksetastiki> prog2_ekse= new ArrayList<>();
+        ArrayList<Eksetastiki> prog3_ekse= new ArrayList<>();
         ProgrammaSpoudwn ps = new ProgrammaSpoudwn("Tmhma Mhxanikwn Plhroforikhs DI.PA.E", "1/9/2019", "Tmhma Mhxaniwn Plhroforikhs");
         Mathima prog1 =new Mathima(1510, "Prog_1", kathigitis, ps);
         //Θετω για κάθε μάθημα διαθέσιμες εξεταστικές περιόδους
         Mathima prog2 =new Mathima(1511, "Prog_2", kathigitis, ps);
         //Θετω για κάθε μάθημα διαθέσιμες εξεταστικές περιόδους
         Mathima prog3 =new Mathima(1512, "Prog_3", kathigitis, ps);
+        Eksetastiki xeimerinh= new Eksetastiki("Xeimerinh", "1/2/2020", null);
+        Eksetastiki earinh= new Eksetastiki("Earinh", "1/6/2020", null);
+        Eksetastiki septemvriou= new Eksetastiki("Septemvriou", "1/9/2020", null);
+        Eksetastiki emvolimi= new Eksetastiki("Emvolimi", "1/4/2020", null);
+        prog1_ekse.add(xeimerinh);
+        prog1_ekse.add(earinh);
+        prog1_ekse.add(septemvriou);
+        prog1_ekse.add(emvolimi);
+        prog2_ekse.add(xeimerinh);
+        prog2_ekse.add(earinh);
+        prog2_ekse.add(septemvriou);
+        prog2.setEksetastikes(prog2_ekse);
+        prog1.setEksetastikes(prog1_ekse);
+        prog3_ekse.add(xeimerinh);
+        prog3_ekse.add(earinh);
+        prog3_ekse.add(septemvriou);
+        prog3.setEksetastikes(prog2_ekse);
         mathimata_kathigiti.add(prog1);
         mathimata_kathigiti.add(prog2);
         mathimata_kathigiti.add(prog3);
@@ -60,11 +80,11 @@ public class Controller_US_06 {
     *Τοτε διατρέχεται το αρχείο με τις βαθμολογίες
     *Και επιστρέφεται πάλι σαν ArrayList o Foititis στην θέση 0 και η Βαθμολογία που είναι Double στην θέση 1
     */
-    public ArrayList getVathmologia(String AM,Mathima mathima, Eksetastiki eksetastiki) throws FileNotFoundException
+    public double getVathmologia(String AM,Mathima mathima, Eksetastiki eksetastiki) throws FileNotFoundException
     {
-        Foititis temp_foititis=Foititis.getFoititis(AM);
+        //Foititis temp_foititis=Foititis.getFoititis(AM);
         ArrayList returnedList= new ArrayList();
-        File vathmologies = new File("C:\\Users\\Stavros\\Desktop\\vathmologies.txt");
+        File vathmologies = new File("C:\\Users\\kyriakos\\Desktop\\vathmologies.txt");
         Scanner vathScanner = new Scanner(vathmologies);
         while (vathScanner.hasNextLine())
         {
@@ -74,24 +94,28 @@ public class Controller_US_06 {
             {    
                vathScanner.close(); 
                
-               returnedList.add(temp_foititis);
-               returnedList.add(Double.parseDouble(parts[3]));
-               return returnedList;
+               //returnedList.add(temp_foititis);
+               //returnedList.add(Double.parseDouble(parts[3]));
+               return Double.parseDouble(parts[3]);
             }    
         } 
         vathScanner.close();
-        return returnedList;
+        return -1;
     }
     /*Τα αντικείμενα που πρέπει να περαστούν ως ορίσματα υπάρχουν στο UI σε μορφή ArrayLists
     * Άρα τα περνάς επιλέγοντας την κατάλληλη θέση της ArrayList
     */
     public void EisagogiDiorthosisVathmologias(Kathigitis kathigitis,Mathima mathima,Foititis foititis,Double Palia_vathm,Double Nea_vathm,Eksetastiki eks)
     {
-            dv=new DiorthosiVathmologias(foititis.getUsername(), kathigitis, mathima, Palia_vathm, Nea_vathm, kathigitis.getDigital_signature(), eks.getKwdikos());
+            dv=new DiorthosiVathmologias(null, kathigitis, mathima, Palia_vathm, Nea_vathm, kathigitis.getDigital_signature(), eks.getKwdikos());
     }
     
     public boolean SaveVathmologia()
     {
         return grammateia.createAithma(this.dv);
+    }
+
+    public ArrayList<Eksetastiki> getEksetastikesOfMathima(ArrayList<Mathima> mathima) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
