@@ -11,12 +11,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author User
  */
-public class Diorthosi_Vathmologias_1 extends javax.swing.JInternalFrame {
+public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Diorthosi_Vathmologias
      */
-    public Diorthosi_Vathmologias_1() {
+    public Diorthosi_Vathmologias_K() {
         initComponents();
         
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));

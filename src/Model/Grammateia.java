@@ -62,7 +62,7 @@ public class Grammateia extends Xristis {
       }
     }
     
-    public boolean createAithma(DiorthosiVathmologias dv){
+    public  boolean createAithma(DiorthosiVathmologias dv){
         if(dv != null)
         {
             diorthoseisVathmologias.add(dv);
