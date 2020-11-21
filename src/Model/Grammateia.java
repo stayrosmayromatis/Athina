@@ -59,7 +59,7 @@ public class Grammateia extends Xristis {
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-      }
+        }
     }
     
     public  boolean createAithma(DiorthosiVathmologias dv){
