@@ -51,6 +51,14 @@ public class DiorthosiVathmologias {
     public Mathima getMathima() {
         return mathima;
     }
+
+    public double getPalia_Vathm() {
+        return Palia_Vathm;
+    }
+
+    public double getNea_Vathm() {
+        return Nea_Vathm;
+    }
     
     
     public void setGrammateia(Grammateia grammateia) {

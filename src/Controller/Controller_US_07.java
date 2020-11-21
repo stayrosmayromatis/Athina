@@ -15,13 +15,23 @@ import java.util.Scanner;
  * @author Stavros
  */
 public class Controller_US_07 {
-
+    private Model.Grammateia grammateia;
+    private Controller_US_03 con3;
+    
     public Controller_US_07() {
+        con3=new Controller_US_03();
+        this.grammateia=con3.returnGrammateia();
     }
     
-    public ArrayList<DiorthosiVathmologias> getDiorthoseisVathmologias(Grammateia grammateia)
+    public String[] getDiorthoseisVathmologias(Grammateia grammateia)
     {
-        return grammateia.getDiorthoseisVathmologias();
+        ArrayList<DiorthosiVathmologias> temp = this.grammateia.getDiorthoseisVathmologias();
+        String parts[]=null;
+        for (int i = 0; i < temp.size(); i++) 
+        {
+              parts[i] =temp.get(i).getKathigitis().getOnoma()+" "+temp.get(i).getMathima().getTitlos()+" "+temp.get(i).getAM_Foititi()+" "+temp.get(i).getPalia_Vathm()+" "+temp.get(i).getNea_Vathm();   
+        }
+        return parts;    
     }
     
     public boolean checkDigSig(DiorthosiVathmologias dv)
