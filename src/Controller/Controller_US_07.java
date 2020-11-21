@@ -7,9 +7,7 @@ package Controller;
 import Model.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Savepoint;
 import java.util.ArrayList;
-import java.util.Scanner;
 import Controller.Controller_US_06;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -41,18 +39,6 @@ public class Controller_US_07 {
     
     public boolean checkDigSig(int idx) throws FileNotFoundException
     {
-        /*
-        Model.Kathigitis temp= Kathigitis.getKathigitis(selected[0]+"_"+selected[1]);
-        Model.Mathima m_temp=null;
-        for (int i = 0; i < temp.getMathimata().size(); i++) {
-            if(temp.getMathimata().get(0).getTitlos().equals(selected[2]))
-            {
-                m_temp=temp.getMathimata().get(0);
-            }
-            
-        }
-        DiorthosiVathmologias dv = new DiorthosiVathmologias(selected[3], temp, m_temp, Double.parseDouble(selected[4]), Double.parseDouble(selected[5]), temp.getDigital_signature(), selected[6]);
-        */
         return temp.get(idx).checkDigitalSign(temp.get(idx));
     }
     

@@ -61,10 +61,7 @@ public class Grammateia extends Xristis {
                 diorthoseisVathmologias.add(temp_dv);
             } 
             fileScanner.close();
-            return this.diorthoseisVathmologias;
-      
-       
-            
+            return this.diorthoseisVathmologias;        
     }
     
     public void sendEnrollment(Foititis foititis,Dilwsi currentDilwsi)
@@ -87,7 +84,6 @@ public class Grammateia extends Xristis {
     public  boolean createAithma(DiorthosiVathmologias dv){
         if(dv != null)
         {
-            //diorthoseisVathmologias.add(dv);
             File aithma = new File(".\\src\\Resources\\aithmata.txt");
             try{
             if(!aithma.exists())

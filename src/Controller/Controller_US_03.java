@@ -15,6 +15,7 @@ public class Controller_US_03 {
 
     
     public Controller_US_03() {
+        grammateia=new Model.Grammateia("info", "password");
     }
     public Model.Kathigitis returnKathigiti(){return this.kathigitis;}
     public Model.Grammateia returnGrammateia(){return this.grammateia;}
@@ -109,7 +110,7 @@ public class Controller_US_03 {
                         String loads[]=line.split(" ");
                         System.out.println("Loged-In as Grammateia.");
                         initScanner.close();
-                        //this.grammateia=new Model.Grammateia(loads[0], loads[1],loads[2]);
+                        this.grammateia=new Model.Grammateia(loads[0], loads[1],loads[2]);
                         return this.showOptions(this.grammateia);
                         
                     }
@@ -147,14 +148,6 @@ public class Controller_US_03 {
                                 loads[2]=loads[2].replace("_", " ");
                                 loads[3]=loads[3].replace("_", " ");
                                 this.kathigitis=new Model.Kathigitis(loads[0], loads[1], loads[2], loads[3], loads[4], Boolean.parseBoolean(loads[5]));    
-                                File gram = new File(".\\src\\Resources\\grammateia.txt");
-                                Scanner gramScanner = new Scanner(gram);
-                                line = gramScanner.nextLine();   
-                                String load[]=line.split(" ");
-                                System.out.println("Loged-In as Grammateia.");
-                                gramScanner.close();
-                                this.grammateia=new Model.Grammateia(load[0], load[1],load[2]);
-                                initScanner.close();
                                 return this.showOptions(kathigitis);
                             }
                         }
