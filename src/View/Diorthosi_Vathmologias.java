@@ -20,19 +20,18 @@ import java.util.logging.Logger;
  * @author User
  */
 public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
-
-    DefaultListModel<String> model;
-    DefaultListModel<String> model_math;
-    DefaultListModel<String> model_eks;
+    //Controller of User Story
+    private Controller_US_06 con6= new Controller_US_06();
+    //Dynamically inserting items to the list
+    private DefaultListModel<String> model;
+    private DefaultListModel<String> model_math;
+    private DefaultListModel<String> model_eks;
+    //Instance of logged-In kathigitis
     private Model.Kathigitis kathigitis=null;
+    
     ArrayList<Model.Mathima> mathima= new ArrayList<>();
     ArrayList<Model.Eksetastiki> eksetastiki = new ArrayList<>();
     ArrayList<Model.Mathima> vathm = new ArrayList<>();
-    Controller_US_06 con6= new Controller_US_06();
-    String AM = null;
-    int selected = 0;
-    double vathmologia = 0.0;
-    
     public Diorthosi_Vathmologias(Model.Kathigitis kathigitis) {
         initComponents();
         model= new DefaultListModel<String>();
@@ -40,16 +39,16 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
         model_eks = new DefaultListModel<>();
         this.kathigitis=kathigitis;
         mathima=con6.getMathimataOfKathigitis(kathigitis);
+        //Δυναμικό γέμισμα των μαθημάτων
         for (int i = 0; i < mathima.size(); i++) {       
             model.addElement(mathima.get(i).getTitlos());
         }
         jList1.setModel(model);
-        jList1.setSelectedIndex(0);
+        jList1.setSelectedIndex(-1);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-
     Diorthosi_Vathmologias() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -75,6 +74,8 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
         ins_vath = new javax.swing.JTextField();
         save = new javax.swing.JButton();
         Message = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -103,11 +104,14 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(eksetastikes);
 
         next_btn.setText("ΕΠΟΜΕΝΟ");
+        next_btn.setEnabled(false);
         next_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 next_btnActionPerformed(evt);
             }
         });
+
+        vath.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         ins_vath.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ins_vath.setEnabled(false);
@@ -120,64 +124,77 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
             }
         });
 
+        Message.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Εισάγετε ΑΜ Φοιτητή (itXXXXXX):");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Εξεταστικές:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(vath)
-                        .addGap(155, 155, 155)
-                        .addComponent(ins_vath, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))))
-                .addGap(36, 36, 36)
+                .addGap(166, 166, 166)
+                .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(AM_txt)
-                                .addContainerGap())
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(AM_txt, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                                .addComponent(next_btn)
-                                .addGap(97, 97, 97))))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(next_btn))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(save)
-                        .addGap(56, 56, 56)
-                        .addComponent(Message)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1))))
+                        .addGap(34, 34, 34)
+                        .addComponent(vath, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ins_vath, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(AM_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(next_btn)))
                 .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vath)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ins_vath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(save)
-                        .addComponent(Message)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(save)
+                    .addComponent(ins_vath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vath, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(Message)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,7 +205,7 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -196,15 +213,14 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         model_math.clear();
-        selected = jList1.getSelectedIndex();
-        if (selected != -1) {
+        if (jList1.getSelectedIndex() != -1) {
             eksetastikes.setVisible(true);
-            eksetastiki = con6.getEksetastikesOfMathima(mathima.get(selected));
+            eksetastiki = con6.getEksetastikesOfMathima(mathima.get(jList1.getSelectedIndex()));
             for (int i = 0; i<eksetastiki.size() ; i++) {
                 model_math.addElement(eksetastiki.get(i).getKwdikos());
             }
             eksetastikes.setModel(model_math);
-            eksetastikes.setSelectedIndex(0);
+            eksetastikes.setSelectedIndex(-1);
         }
 
     }//GEN-LAST:event_jList1MouseClicked
@@ -215,22 +231,21 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
     private void eksetastikesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eksetastikesMouseClicked
         model_eks.clear();
-        int selected = eksetastikes.getSelectedIndex();
-        if (selected != -1) {
+        if (eksetastikes.getSelectedIndex() != -1) {
             AM_txt.setVisible(true);
             next_btn.setVisible(true);
+            next_btn.setEnabled(true);
         }
     }//GEN-LAST:event_eksetastikesMouseClicked
 
     private void next_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_btnActionPerformed
-        AM = AM_txt.getText();
-        try { 
-            if(con6.getVathmologia(AM, mathima.get(jList1.getSelectedIndex()), eksetastiki.get(eksetastikes.getSelectedIndex())) == -1)
+       try { 
+            if(con6.getVathmologia(AM_txt.getText(), mathima.get(jList1.getSelectedIndex()), eksetastiki.get(eksetastikes.getSelectedIndex())) == -1)
             {
-                vath.setText("ΔΕΝ ΕΧΕΙ ΚΑΤΑΧΩΡΗΘΕΙ");
+                vath.setText("ΔΕΝ ΕΧΕΙ ΚΑΤΑΧΩΡΗΘΕΙ ΒΑΘΜΟΛΟΓΙΑ.");
             }
             else {
-                vath.setText(""+con6.getVathmologia(AM, mathima.get(jList1.getSelectedIndex()), eksetastiki.get(eksetastikes.getSelectedIndex()))+"");
+                vath.setText(""+con6.getVathmologia(AM_txt.getText(), mathima.get(jList1.getSelectedIndex()), eksetastiki.get(eksetastikes.getSelectedIndex()))+"");
                 ins_vath.setEnabled(true);
                 save.setEnabled(true);
             }
@@ -240,13 +255,22 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_next_btnActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        con6.EisagogiDiorthosisVathmologias(kathigitis, mathima.get(jList1.getSelectedIndex()), null, Double.parseDouble(vath.getText()), Double.parseDouble(ins_vath.getText()), eksetastiki.get(eksetastikes.getSelectedIndex()));
-        if (con6.SaveVathmologia()) {
-            Message.setText("Η ΒΑΘΜΟΛΟΓΙΑ ΣΑΣ ΣΤΑΛΘΗΚΕ ΕΠΙΤΥΧΩΣ!");
+        double inserted= Double.parseDouble(ins_vath.getText());
+        if(inserted >=0.0 && inserted <=10.0)
+        {
+            con6.EisagogiDiorthosisVathmologias(kathigitis, mathima.get(jList1.getSelectedIndex()), null, Double.parseDouble(vath.getText()), inserted, eksetastiki.get(eksetastikes.getSelectedIndex()));
+            if (con6.SaveVathmologia()) {
+                Message.setText("Η ΒΑΘΜΟΛΟΓΙΑ ΣΑΣ ΣΤΑΛΘΗΚΕ ΕΠΙΤΥΧΩΣ!");
+            }
+            else {
+                Message.setText("ΑΠΟΤΥΧΙΑ!");
+            }
         }
-        else {
-            Message.setText("ΑΠΟΤΥΧΙΑ!");
+        else
+        {
+            Message.setText("ΕΠΙΤΡΕΠΤΕΣ ΤΙΜΕΣ ΜΕΤΑΞΥ 0.0 ~ 10.0");
         }
+        
     }//GEN-LAST:event_saveActionPerformed
 
 
@@ -256,6 +280,8 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
     private javax.swing.JList eksetastikes;
     private javax.swing.JTextField ins_vath;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

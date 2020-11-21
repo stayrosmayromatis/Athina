@@ -18,13 +18,10 @@ package View;
  * @author User
  */
 public class Login_Form extends javax.swing.JFrame {
-    //private Object View;
-
-    /**
-     * Creates new form Login_Form
-     */
+   Controller con ;
     public Login_Form() {
         initComponents();
+        con= new Controller();
     }
 
     /**
@@ -200,7 +197,7 @@ public class Login_Form extends javax.swing.JFrame {
         try {
             String jPassword = Password.getText();
             String jUsername = Username.getText();
-            Controller con = new Controller();
+           
             Object obj = con.verifyUser(jUsername, jPassword);    
           
             //Foititis

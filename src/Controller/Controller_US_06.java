@@ -82,9 +82,7 @@ public class Controller_US_06 {
     */
     public double getVathmologia(String AM,Mathima mathima, Eksetastiki eksetastiki) throws FileNotFoundException
     {
-        //Foititis temp_foititis=Foititis.getFoititis(AM);
-        ArrayList returnedList= new ArrayList();
-        File vathmologies = new File("C:\\Users\\kyriakos\\Desktop\\vathmologies.txt");
+        File vathmologies = new File(".\\src\\Resources\\vathmologies.txt");
         Scanner vathScanner = new Scanner(vathmologies);
         while (vathScanner.hasNextLine())
         {
@@ -93,9 +91,6 @@ public class Controller_US_06 {
             if(parts[0].equalsIgnoreCase(AM) && mathima.getID()==Integer.parseInt(parts[1]) && eksetastiki.getKwdikos().equals(parts[2]))
             {    
                vathScanner.close(); 
-               
-               //returnedList.add(temp_foititis);
-               //returnedList.add(Double.parseDouble(parts[3]));
                return Double.parseDouble(parts[3]);
             }    
         } 

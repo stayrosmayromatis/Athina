@@ -1,0 +1,3 @@
+euclid password Euclid_Keramopoulos Web_Researcher euclid@it.teithe.gr true
+ignatios password Ignatios_Deligiannis Software_Engineer ignatios@it.teithe.gr true
+antoniou password Eustathios_Antoniou Applied_Mathematician antoniou@it.teithe.gr true
