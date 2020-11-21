@@ -71,14 +71,14 @@ public class Controller_US_03 {
         }
         else if (object instanceof Model.Kathigitis)
         {
-            View.Kathigitis kathigitis = new View.Kathigitis(this.kathigitis);
+            View.Kathigitis kathigitis = new View.Kathigitis();
             kathigitis.setVisible(true);
             kathigitis.toFront();
             return 0;
         }
         else if (object instanceof Model.Grammateia)
         {
-            View.Grammateia grammateia = new View.Grammateia(this.grammateia);
+            View.Grammateia grammateia = new View.Grammateia();
             grammateia.setVisible(true);
             grammateia.toFront();
             return 0;
@@ -109,7 +109,7 @@ public class Controller_US_03 {
                         String loads[]=line.split(" ");
                         System.out.println("Loged-In as Grammateia.");
                         initScanner.close();
-                        this.grammateia=new Model.Grammateia(loads[0], loads[1],loads[2]);
+                        //this.grammateia=new Model.Grammateia(loads[0], loads[1],loads[2]);
                         return this.showOptions(this.grammateia);
                         
                     }
@@ -146,8 +146,15 @@ public class Controller_US_03 {
                                 System.out.println("Logged in as Kathigitis: "+loads[0]);
                                 loads[2]=loads[2].replace("_", " ");
                                 loads[3]=loads[3].replace("_", " ");
+                                this.kathigitis=new Model.Kathigitis(loads[0], loads[1], loads[2], loads[3], loads[4], Boolean.parseBoolean(loads[5]));    
+                                File gram = new File(".\\src\\Resources\\grammateia.txt");
+                                Scanner gramScanner = new Scanner(gram);
+                                line = gramScanner.nextLine();   
+                                String load[]=line.split(" ");
+                                System.out.println("Loged-In as Grammateia.");
+                                gramScanner.close();
+                                this.grammateia=new Model.Grammateia(load[0], load[1],load[2]);
                                 initScanner.close();
-                                this.kathigitis=new Model.Kathigitis(loads[0], loads[1], loads[2], loads[3], loads[4], Boolean.parseBoolean(loads[5]));
                                 return this.showOptions(kathigitis);
                             }
                         }

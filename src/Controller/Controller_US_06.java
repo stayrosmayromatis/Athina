@@ -17,13 +17,17 @@ import java.util.Scanner;
  */
 public class Controller_US_06 {
     private DiorthosiVathmologias dv;
-    private Grammateia grammateia=new Grammateia("info", "password","info@it.teithe.gr");
+    private Grammateia grammateia=null;
     private Controller_US_03 con3 = new Controller_US_03();
     private Model.Kathigitis kathigitis= con3.returnKathigiti();
     private ProgrammaSpoudwn ps;
     private ArrayList<Model.Mathima> mathimata_kathigiti;
+    
+    public Model.Grammateia returnGrammateia(){return this.grammateia;}
+    
     public Controller_US_06() {
         this.dv=null;
+        this.grammateia=con3.returnGrammateia();
         ps = new ProgrammaSpoudwn("Tmhma Mhxanikwn Plhroforikhs DI.PA.E", "1/9/2019", "Tmhma Mhxaniwn Plhroforikhs");
         mathimata_kathigiti= new ArrayList<>();
     }
@@ -155,11 +159,12 @@ public class Controller_US_06 {
             } 
         }
             dv=new DiorthosiVathmologias(f_temp.getUsername(), this.kathigitis, m_temp, Palia_Vathm, Nea_Vathm, this.kathigitis.getDigital_signature(), eksetastikh);
+            dv.setGrammateia(this.grammateia);
     }
     
     public boolean SaveVathmologia()
     {
-        return grammateia.createAithma(this.dv);
+        return this.grammateia.createAithma(this.dv);
     }
 
     public ArrayList<Eksetastiki> getEksetastikesOfMathima(ArrayList<Mathima> mathima) {

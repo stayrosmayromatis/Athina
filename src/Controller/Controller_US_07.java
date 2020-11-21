@@ -10,26 +10,27 @@ import java.io.FileNotFoundException;
 import java.sql.Savepoint;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Controller.Controller_US_06;
 /**
  *
  * @author Stavros
  */
 public class Controller_US_07 {
-    private Model.Grammateia grammateia;
-    private Controller_US_03 con3;
+    private Model.Grammateia grammateia=null;
+    private Controller_US_06 con6;
     
     public Controller_US_07() {
-        con3=new Controller_US_03();
-        this.grammateia=con3.returnGrammateia();
+        con6=new Controller_US_06();
+        this.grammateia=con6.returnGrammateia();
     }
     
     public String[] getDiorthoseisVathmologias()
     {
         ArrayList<DiorthosiVathmologias> temp = this.grammateia.getDiorthoseisVathmologias();
-        String parts[]=null;
+        String parts[]=new String[temp.size()];
         for (int i = 0; i < temp.size(); i++) 
         {
-              parts[i] =temp.get(i).getKathigitis().getOnoma()+" "+temp.get(i).getMathima().getTitlos()+" "+temp.get(i).getAM_Foititi()+" "+temp.get(i).getPalia_Vathm()+" "+temp.get(i).getNea_Vathm();   
+              parts[i]=temp.get(i).getKathigitis().getOnoma()+" "+temp.get(i).getMathima().getTitlos()+" "+temp.get(i).getAM_Foititi()+" "+temp.get(i).getPalia_Vathm()+" "+temp.get(i).getNea_Vathm();   
         }
         return parts;    
     }
