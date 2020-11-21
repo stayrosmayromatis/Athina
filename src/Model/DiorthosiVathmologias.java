@@ -64,6 +64,11 @@ public class DiorthosiVathmologias {
     public void setGrammateia(Grammateia grammateia) {
         this.grammateia = grammateia;
     }
+
+    public String getEksetastiki() {
+        return eksetastiki;
+    }
+    
     
     //Ελεγξε το dig signature ενος καθηγητη που υποβάλλει δήλωση.
     public boolean checkDigitalSign(DiorthosiVathmologias diorthosiVathmologias)

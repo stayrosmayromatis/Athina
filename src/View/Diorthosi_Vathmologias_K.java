@@ -110,9 +110,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        String selected = jList1.getSelectedValue();
-        String[] selected_array = selected.split(" ");
-        
+        String selected = jList1.getSelectedValue(); 
     }//GEN-LAST:event_jList1MouseClicked
 
 

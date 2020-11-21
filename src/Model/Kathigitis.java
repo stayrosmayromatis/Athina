@@ -1,6 +1,9 @@
 package Model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Kathigitis extends Xristis{
     
@@ -21,7 +24,33 @@ public class Kathigitis extends Xristis{
         this.email = email;
         this.digital_signature = digital_signature;
     }
+    
+    public static Kathigitis getKathigitis(String onoma) throws FileNotFoundException
+    {
+        try
+        {
+            File kathigites = new File(".\\src\\Resources\\kathigites.txt");
+            Scanner fileScanner = new Scanner(kathigites);
+            while (fileScanner.hasNextLine())
+            {
+                String line = fileScanner.nextLine();
+                String parts[]=line.split(" ");
+                if(parts[2].equalsIgnoreCase(onoma))
+                {     
+                    return new Kathigitis(parts[0], parts[1], parts[2], parts[3], parts[4], Boolean.parseBoolean(parts[5]));
+                }    
+            } 
+            fileScanner.close();
+            return null;
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("File Not Found!");
+            e.printStackTrace();
+            return null;
 
+        }
+    }
     public String getOnoma() {
         return onoma;
     }
