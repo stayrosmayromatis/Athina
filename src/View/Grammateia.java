@@ -233,7 +233,12 @@ public class Grammateia extends javax.swing.JFrame {
             .addGap(0, 33, Short.MAX_VALUE)
         );
 
-        Diorthotikes_Vathmologies_G1.setText("Διόρθωση Βαθμολογίας");
+        Diorthotikes_Vathmologies_G1.setText("Έγκρισεις  Βαθμολογίας");
+        Diorthotikes_Vathmologies_G1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Diorthotikes_Vathmologies_G1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout DiorthotikesLayout = new javax.swing.GroupLayout(Diorthotikes);
         Diorthotikes.setLayout(DiorthotikesLayout);
@@ -368,10 +373,14 @@ public class Grammateia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void DiorthotikesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiorthotikesMouseClicked
-        jDesktopPane1.removeAll();
-        Diorthosi_Vathmologias dv = new Diorthosi_Vathmologias();
-        jDesktopPane1.add(dv).setVisible(true);
+        
     }//GEN-LAST:event_DiorthotikesMouseClicked
+
+    private void Diorthotikes_Vathmologies_G1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Diorthotikes_Vathmologies_G1MouseClicked
+        jDesktopPane1.removeAll();
+        View.Diorthosi_Vathmologias_K dv = new Diorthosi_Vathmologias_K();
+        jDesktopPane1.add(dv).setVisible(true);
+    }//GEN-LAST:event_Diorthotikes_Vathmologies_G1MouseClicked
 
     /**
      * @param args the command line arguments
