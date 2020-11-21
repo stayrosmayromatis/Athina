@@ -6,6 +6,7 @@
 package View;
 
 //import java.awt.Toolkit;
+import Controller.Controller_US_03;
 import java.awt.List;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -27,26 +28,24 @@ import java.util.logging.Logger;
  * @author User
  */
 public class Foititis extends javax.swing.JFrame {
-    public void loadDefaultValues(Model.Foititis foititis)
+    Controller.Controller_US_03 con3;
+    public void loadDefaultValues()
     {
-        name.setText(foititis.getOnoma());
-        last_name.setText(foititis.getEpwnymo());
-        email.setText(foititis.getEmail());
-        phone.setText(foititis.getTel());
-        address.setText(foititis.getAddress());
-        semester.setText(""+foititis.getTypiko_eksa()+"");
-        dm.setText(""+foititis.getDm()+"");
+        name.setText(con3.FgetOnoma());
+        last_name.setText(con3.FgetEpwnymo());
+        email.setText(con3.FgetEmail());
+        phone.setText(con3.FgetTel());
+        address.setText(con3.FgetAddress());
+        semester.setText(""+con3.FgetTypiko_eksa()+"");
+        dm.setText(""+con3.FgetDm()+"");
     }
     public Foititis() throws IOException {
+        con3=new Controller_US_03();
         initComponents();
-        Stoixeia_Foititi sf = new Stoixeia_Foititi();        
-    }
-
-    public Foititis(Model.Foititis foititis) {
-        initComponents();
-        this.loadDefaultValues(foititis);
+        this.loadDefaultValues();
         
     }
+
         /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -4,24 +4,21 @@
  * and open the template in the editor.
  */
 package View;
-    import java.awt.event.WindowEvent;
-    import org.xml.sax.Attributes;
     import static javax.swing.JOptionPane.*;
-    import Controller.Controller;
+    import Controller.Controller_US_03;
     import java.io.FileNotFoundException;
-    import java.io.IOException;
+import java.io.IOException;
     import java.util.logging.Level;
     import java.util.logging.Logger;
-    import Model.*;
 /**
  *
  * @author User
  */
 public class Login_Form extends javax.swing.JFrame {
-   Controller con ;
+   Controller_US_03 con ;
     public Login_Form() {
         initComponents();
-        con= new Controller();
+        con= new Controller_US_03();
     }
 
     /**
@@ -197,54 +194,24 @@ public class Login_Form extends javax.swing.JFrame {
         try {
             String jPassword = Password.getText();
             String jUsername = Username.getText();
-           
-            Object obj = con.verifyUser(jUsername, jPassword);    
-          
-            //Foititis
-            if (obj instanceof Model.Foititis)
+            int status_code=con.verifyUser(jUsername, jPassword);
+            if(status_code==-1)
             {
-                Username.setText(null);
+                showMessageDialog(null, "Not a registered user", "Error", ERROR_MESSAGE);
                 Password.setText(null);
-                
-                this.toBack();
-                View.Foititis foititis = new View.Foititis((Model.Foititis)obj);
-                foititis.setVisible(true);
-                foititis.toFront();
-            }
-            //Kathigitis
-            else if (obj instanceof Model.Kathigitis)
-            {
-                Username.setText(null);
-                Password.setText(null);
-                
-                this.toBack();
-                View.Kathigitis kathigitis = new View.Kathigitis((Model.Kathigitis)(obj));
-                kathigitis.setVisible(true);
-                kathigitis.toFront();
-            }
-            //Grammateia
-            else if (obj instanceof Model.Grammateia)
-            {
-                Username.setText(null);
-                Password.setText(null);
-                
-                this.toBack();
-                View.Grammateia grammateia = new View.Grammateia((Model.Grammateia)(obj));
-                grammateia.setVisible(true);
-                grammateia.toFront();
             }
             else
-                showMessageDialog(null, "Not a registered user", "Error", ERROR_MESSAGE);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            {
+                this.toBack();
+                Username.setText(null);
+                Password.setText(null);
+            }
+        } catch (FileNotFoundException ex) {        
+           Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (IOException ex) {
+           Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
+       }        
     }//GEN-LAST:event_LogInActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

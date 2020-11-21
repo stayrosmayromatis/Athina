@@ -27,7 +27,7 @@ public class Grammateia extends javax.swing.JFrame {
         initComponents();
         this.grammateia = grammateia;
         jDesktopPane1.removeAll();
-        Stoixeia_Grammateia sk = new Stoixeia_Grammateia(grammateia);
+        Stoixeia_Grammateia sk = new Stoixeia_Grammateia();
         jDesktopPane1.add(sk).setVisible(true);
     }
 
@@ -341,7 +341,7 @@ public class Grammateia extends javax.swing.JFrame {
 
     private void StoixeiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StoixeiaMouseClicked
         jDesktopPane1.removeAll();
-        Stoixeia_Grammateia sg = new Stoixeia_Grammateia(grammateia);
+        Stoixeia_Grammateia sg = new Stoixeia_Grammateia();
         jDesktopPane1.add(sg).setVisible(true);
     }//GEN-LAST:event_StoixeiaMouseClicked
 

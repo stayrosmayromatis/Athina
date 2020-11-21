@@ -1,5 +1,6 @@
 package Controller;
 import Model.*;
+import View.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
@@ -7,8 +8,87 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Controller {
-    public Object verifyUser(String username,String password) throws FileNotFoundException
+public class Controller_US_03 {
+    private static Model.Grammateia grammateia=null;
+    private static Model.Kathigitis kathigitis=null;
+    private static Model.Foititis foititis=null;
+
+    
+    public Controller_US_03() {
+    }
+    
+    public String FgetOnoma() {
+        
+        return foititis.getOnoma();
+    }
+    public String FgetEpwnymo() {
+        return foititis.getEpwnymo();
+    }
+    public String FgetEmail() {
+        return foititis.getEmail();
+    }
+    public String FgetTel() {
+        return foititis.getTel();
+    }
+    public String FgetAddress() {
+        return foititis.getAddress();
+    }
+    public int FgetTypiko_eksa() {
+        return foititis.getTypiko_eksa();
+    }
+    public int FgetDm() {
+        return foititis.getDm();
+    }
+    public String KgetOnoma() {
+        return this.kathigitis.getOnoma();
+    }
+    public String KgetEidikotita() {
+        return this.kathigitis.getEidikotita();
+    }
+    public String KgetEmail() {
+        return this.kathigitis.getEmail();
+    }
+    public boolean KgetDigital_signature() {
+        return this.kathigitis.getDigital_signature();
+    } 
+    public String GgetEmail() {
+        return this.grammateia.getEmail();
+    }
+    public String GgetUsername(){
+        return this.grammateia.getUsername();
+    }
+    
+    
+    public int showOptions(Object object) throws IOException
+    {
+        if(object instanceof Model.Foititis)
+        {
+            View.Foititis foititis = new View.Foititis();
+            foititis.setVisible(true);
+            foititis.toFront();
+            return 0;
+        }
+        else if (object instanceof Model.Kathigitis)
+        {
+            View.Kathigitis kathigitis = new View.Kathigitis(this.kathigitis);
+            kathigitis.setVisible(true);
+            kathigitis.toFront();
+            return 0;
+        }
+        else if (object instanceof Model.Grammateia)
+        {
+            View.Grammateia grammateia = new View.Grammateia(this.grammateia);
+            grammateia.setVisible(true);
+            grammateia.toFront();
+            return 0;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    
+    public int verifyUser(String username,String password) throws FileNotFoundException, IOException
     {
         try
         {
@@ -22,13 +102,14 @@ public class Controller {
                 {    
                     if(Integer.parseInt(parts[2])==1)
                     {      
-                        File grammateia = new File(".\\src\\Resources\\grammateia.txt");
-                        Scanner initScanner = new Scanner(grammateia);
+                        File gram = new File(".\\src\\Resources\\grammateia.txt");
+                        Scanner initScanner = new Scanner(gram);
                         line = initScanner.nextLine();   
                         String loads[]=line.split(" ");
                         System.out.println("Loged-In as Grammateia.");
                         initScanner.close();
-                        return new Grammateia(loads[0], loads[1],loads[2]);
+                        this.grammateia=new Model.Grammateia(loads[0], loads[1],loads[2]);
+                        return this.showOptions(this.grammateia);
                         
                     }
                     else if(Integer.parseInt(parts[2])==2)
@@ -45,7 +126,8 @@ public class Controller {
                                 System.out.println("Logged in as Foititis: "+loads[0]);
                                 loads[6]=loads[6].replace("_", " ");
                                 initScanner.close();
-                                return new Foititis(loads[0],loads[1],loads[2],loads[3],loads[4],loads[5],loads[6],Integer.parseInt(loads[7]),Integer.parseInt(loads[8]));   
+                                this.foititis=new Model.Foititis(loads[0],loads[1],loads[2],loads[3],loads[4],loads[5],loads[6],Integer.parseInt(loads[7]),Integer.parseInt(loads[8]));   
+                                return this.showOptions(this.foititis);
                             }
                         }
                     }
@@ -64,34 +146,34 @@ public class Controller {
                                 loads[2]=loads[2].replace("_", " ");
                                 loads[3]=loads[3].replace("_", " ");
                                 initScanner.close();
-                                return new Kathigitis(loads[0], loads[1], loads[2], loads[3], loads[4], Boolean.parseBoolean(loads[5]));
+                                this.kathigitis=new Model.Kathigitis(loads[0], loads[1], loads[2], loads[3], loads[4], Boolean.parseBoolean(loads[5]));
+                                return this.showOptions(kathigitis);
                             }
                         }
                     }      
                 }
             }
-            System.out.println("Not Authorized User");
-            return null;
+            return -1;
         } 
         catch(FileNotFoundException e)
         {
             System.out.println("File Not Found!");
             e.printStackTrace();
-            return null;
+            return -1;
 
         }
     }
         
-    
+    /*
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println(new File(".").getAbsolutePath());
-        /*LOGIN DONE US03 DONE*/
-        Controller con = new Controller();
+        LOGIN DONE US03 DONE
+        Controller_US_03 con = new Controller_US_03();
         Object obj= con.verifyUser("ignatios", "password");
         Kathigitis ignatios = (Kathigitis)obj;
         Grammateia grammateia = new Grammateia("info", "password","info@it.teithe.gr");
         
-        /* US06 YPOVOLI DIORTHOSHS VATHMOLOGIAS*/
+        US06 YPOVOLI DIORTHOSHS VATHMOLOGIAS
         //Δηλωση Π.Σ. και κάποια μαθήματα με καθηγητή .
         ProgrammaSpoudwn ps =new ProgrammaSpoudwn("P.S.2020", "1/1/2020", "Mhxanikwn Plhroforikhs kai Hlektronikwn Systhmatwn");
         
@@ -165,9 +247,9 @@ public class Controller {
         else
             System.out.println("Something went wrong");
         
-        /*US06 DONE!*/
+        /*US06 DONE!
         
-        /*US07 */
+        /*US07 
         //Εμφανίζω όλες τις διαθέσιμες διορθώσεις βαθμολογιών που έχουν υποβληθεί απο καθηγητές
         for (int i = 0; i < grammateia.getDiorthoseisVathmologias().size(); i++) {
             System.out.println("Αίτηση "+(i+1)+" υποβλήθηκε απο: "+grammateia.getDiorthoseisVathmologias().get(i).getKathigitis().getOnoma()+", Μάθημα: "+grammateia.getDiorthoseisVathmologias().get(i).getMathima().getTitlos()+" για τον φοιτητή: "+grammateia.getDiorthoseisVathmologias().get(i).getAM_Foititi());
@@ -184,7 +266,7 @@ public class Controller {
         //Έστω οτι επιλέγει την 0 θέση της λίστας
         
         
-        /*    
+      
         ProgrammaSpoudwn ps = new ProgrammaSpoudwn("PS 2020", "1/1/2020", "Tmhma Mhxanikwn Plhforofikhs kai Hlektronikwn Systhmatwn");
         Kathigitis k1 = new Kathigitis("ignatios", "password", "Ignatios Deligiannis", "Software Engineer", "ignatios@it.teithe.gr", true);
         
@@ -246,7 +328,7 @@ public class Controller {
 
         Foititis f2=f1.getFoititis("it175099");
         System.out.println(f2);
+    
         */
-
     }
-}
+

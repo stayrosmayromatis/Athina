@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View;
+import Controller.Controller_US_03;
 import java.awt.List;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -28,30 +29,25 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  * @author User
  */
 public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form Stoixeia_Kathigiti
-     */
+    private Controller.Controller_US_03 con3;
     public Stoixeia_Kathigiti() {
         initComponents();
-        
+        con3=new Controller_US_03();
+        this.loadDefaultValues(); 
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
 
-    public void loadDefaultValues(Model.Kathigitis kathigitis)
+    public void loadDefaultValues()
     {
-        name.setText(kathigitis.getOnoma());
-        speciality.setText(kathigitis.getEidikotita());
-        Email.setText(kathigitis.getEmail());
-        dig_sign.setText(""+kathigitis.getDigital_signature()+"");
+        name.setText(con3.KgetOnoma());
+        speciality.setText(con3.KgetEidikotita());
+        Email.setText(con3.KgetEmail());
+        dig_sign.setText(""+con3.KgetDigital_signature()+"");
     }
     
-    public Stoixeia_Kathigiti(Model.Kathigitis kathigitis) {
-        initComponents();
-        this.loadDefaultValues(kathigitis);   
-    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
