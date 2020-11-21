@@ -26,11 +26,18 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
      */
     private Controller_US_07 con7;
     private DefaultListModel<String> model_dv;
+    private String[] vathmologies = null;
     
     public Diorthosi_Vathmologias_K() {
         initComponents();   
         con7 = new Controller_US_07();
         model_dv = new DefaultListModel<String>();
+        vathmologies = con7.getDiorthoseisVathmologias();
+        for (int i = 0; i < vathmologies.length; i++) {
+            model_dv.addElement(vathmologies[i]);  
+        }
+        jList1.setModel(model_dv);
+        jList1.setSelectedIndex(-1);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);

@@ -23,7 +23,7 @@ public class Controller_US_07 {
         this.grammateia=con3.returnGrammateia();
     }
     
-    public String[] getDiorthoseisVathmologias(Grammateia grammateia)
+    public String[] getDiorthoseisVathmologias()
     {
         ArrayList<DiorthosiVathmologias> temp = this.grammateia.getDiorthoseisVathmologias();
         String parts[]=null;
