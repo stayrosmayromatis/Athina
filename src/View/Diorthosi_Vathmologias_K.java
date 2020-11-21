@@ -5,8 +5,16 @@
  */
 package View;
 
+import Controller.Controller_US_07;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
+import Model.*;
+import Controller.*;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author User
@@ -16,8 +24,13 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     /**
      * Creates new form Diorthosi_Vathmologias
      */
+    private Controller_US_07 con7;
+    private DefaultListModel<String> model_dv;
+    
     public Diorthosi_Vathmologias_K() {
         initComponents();   
+        con7 = new Controller_US_07();
+        model_dv = new DefaultListModel<String>();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
