@@ -35,7 +35,7 @@ public class Kathigitis extends Xristis{
             {
                 String line = fileScanner.nextLine();
                 String parts[]=line.split(" ");
-                if(parts[2].equalsIgnoreCase(onoma))
+                if(parts[0].equalsIgnoreCase(onoma))
                 {     
                     return new Kathigitis(parts[0], parts[1], parts[2], parts[3], parts[4], Boolean.parseBoolean(parts[5]));
                 }    

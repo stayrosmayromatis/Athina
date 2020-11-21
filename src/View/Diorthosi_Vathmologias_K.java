@@ -28,7 +28,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     private DefaultListModel<String> model_dv;
     private String[] vathmologies = null;
     
-    public Diorthosi_Vathmologias_K() {
+    public Diorthosi_Vathmologias_K() throws FileNotFoundException {
         initComponents();   
         con7 = new Controller_US_07();
         model_dv = new DefaultListModel<String>();
@@ -59,6 +59,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         isDig = new javax.swing.JLabel();
         approve = new javax.swing.JButton();
+        message = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -75,26 +76,38 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
 
         approve.setText("ΕΓΚΡΙΣΗ");
         approve.setEnabled(false);
+        approve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                approveActionPerformed(evt);
+            }
+        });
+
+        message.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        message.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(approve))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(isDig)))))
-                .addContainerGap(134, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(129, 129, 129)
+                                        .addComponent(approve))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(isDig)))))
+                        .addGap(0, 124, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +125,9 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(approve)))
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(104, 104, 104)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,16 +148,37 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
         String selected = jList1.getSelectedValue(); 
         String parts[] = selected.split(" ");
         try {
-            if (con7.checkDigSig(parts)) {
+            if (con7.checkDigSig(jList1.getSelectedIndex())) {
                 isDig.setText("Ο καθηγητής : "+parts[0]+" "+parts[1]+" κατέχει ψηφιακή υπογραφή.");
                 approve.setEnabled(true);
-            } else {
+            } 
+            else {
                 isDig.setText("Ο καθηγητής : "+parts[0]+" "+parts[1]+" δεν κατέχει ψηφιακή υπογραφή.");
+                approve.setEnabled(false);
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Diorthosi_Vathmologias_K.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jList1MouseClicked
+
+    private void approveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveActionPerformed
+        if(con7.SaveDiorthosiVathmologias(jList1.getSelectedIndex()))
+        {
+            message.setText("Η ΔΙΟΡΘΩΣΗ ΒΑΘΜΟΛΟΓΙΑΣ ΕΚΓΡΙΘΗΚΕ");
+            model_dv.remove(jList1.getSelectedIndex());
+            if(model_dv.isEmpty())
+            {
+                message.setText("");
+                isDig.setText("");
+                approve.setEnabled(false);
+            }
+        }
+        else
+        {
+            message.setText("Η ΔΙΟΡΘΩΣΗ ΔΕΝ ΜΠΟΡΕΣΕ ΝΑ ΕΓΚΡΙΘΕΙ");
+        }
+        
+    }//GEN-LAST:event_approveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -153,5 +189,6 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel message;
     // End of variables declaration//GEN-END:variables
 }

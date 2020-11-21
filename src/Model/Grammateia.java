@@ -1,7 +1,13 @@
 package Model;
+import static Model.Kathigitis.getKathigitis;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Grammateia extends Xristis {
     private String email;
@@ -40,9 +46,25 @@ public class Grammateia extends Xristis {
         return "Grammateia{" + "email=" + email + ", aithma=" + aithma + '}';
     }
     
-    public ArrayList<DiorthosiVathmologias> getDiorthoseisVathmologias()
+    public ArrayList<DiorthosiVathmologias> getDiorthoseisVathmologias() throws FileNotFoundException,UnsupportedOperationException
     {
-        return this.diorthoseisVathmologias;
+        
+            DiorthosiVathmologias temp_dv=null;
+            File aithmata = new File(".\\src\\Resources\\aithmata.txt");
+            Scanner fileScanner = new Scanner(aithmata);
+            while (fileScanner.hasNextLine())
+            {
+                String line = fileScanner.nextLine();
+                String parts[]=line.split(" ");
+                Kathigitis temp = getKathigitis(parts[1]);
+                temp_dv = new DiorthosiVathmologias(parts[0], temp, Integer.parseInt(parts[2]), Double.parseDouble(parts[3]), Double.parseDouble(parts[4]), temp.getDigital_signature(), parts[6]);
+                diorthoseisVathmologias.add(temp_dv);
+            } 
+            fileScanner.close();
+            return this.diorthoseisVathmologias;
+      
+       
+            
     }
     
     public void sendEnrollment(Foititis foititis,Dilwsi currentDilwsi)
@@ -65,7 +87,22 @@ public class Grammateia extends Xristis {
     public  boolean createAithma(DiorthosiVathmologias dv){
         if(dv != null)
         {
-            diorthoseisVathmologias.add(dv);
+            //diorthoseisVathmologias.add(dv);
+            File aithma = new File(".\\src\\Resources\\aithmata.txt");
+            try{
+            if(!aithma.exists())
+            {
+                System.out.println("We had to make a new file.");
+                aithma.createNewFile();
+            }
+                FileWriter fileWriter = new FileWriter(aithma,true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                bufferedWriter.write(dv.getAM_Foititi()+" "+dv.getKathigitis().getUsername()+" "+dv.getMathima()+" "+dv.getPalia_Vathm()+" "+dv.getNea_Vathm()+" "+dv.getKathigitis().getDigital_signature()+" "+dv.getEksetastiki()+"\n");
+                bufferedWriter.close();
+            }catch(IOException e)
+            {
+                System.out.println("COULD NOT LOG!!");
+            }
             return true;
         }
         else

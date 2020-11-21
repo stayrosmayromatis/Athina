@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -378,7 +382,12 @@ public class Grammateia extends javax.swing.JFrame {
 
     private void Diorthotikes_Vathmologies_G1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Diorthotikes_Vathmologies_G1MouseClicked
         jDesktopPane1.removeAll();
-        View.Diorthosi_Vathmologias_K dv = new Diorthosi_Vathmologias_K();
+        View.Diorthosi_Vathmologias_K dv = null;
+        try {
+            dv = new Diorthosi_Vathmologias_K();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Grammateia.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jDesktopPane1.add(dv).setVisible(true);
     }//GEN-LAST:event_Diorthotikes_Vathmologies_G1MouseClicked
 

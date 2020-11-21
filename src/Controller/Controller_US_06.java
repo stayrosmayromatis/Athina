@@ -158,7 +158,7 @@ public class Controller_US_06 {
                 break;
             } 
         }
-            dv=new DiorthosiVathmologias(f_temp.getUsername(), this.kathigitis, m_temp, Palia_Vathm, Nea_Vathm, this.kathigitis.getDigital_signature(), eksetastikh);
+            dv=new DiorthosiVathmologias(f_temp.getUsername(), this.kathigitis, m_temp.getID(), Palia_Vathm, Nea_Vathm, this.kathigitis.getDigital_signature(), eksetastikh);
             dv.setGrammateia(this.grammateia);
     }
     

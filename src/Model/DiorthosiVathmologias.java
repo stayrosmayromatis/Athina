@@ -12,14 +12,14 @@ package Model;
 public class DiorthosiVathmologias {
     private String AM_Foititi;
     private Kathigitis kathigitis;
-    private Mathima mathima;
+    private int mathima;
     private double Palia_Vathm;
     private double Nea_Vathm;
     private boolean digital_sign;
     private String eksetastiki;
     private Grammateia grammateia;
 
-    public DiorthosiVathmologias(Kathigitis kathigitis, Mathima mathima, double Palia_Vathm, double Nea_Vathm, boolean digital_sign, String eksetastiki, Grammateia grammateia) {
+    public DiorthosiVathmologias(Kathigitis kathigitis, int mathima, double Palia_Vathm, double Nea_Vathm, boolean digital_sign, String eksetastiki, Grammateia grammateia) {
         this.kathigitis = kathigitis;
         this.mathima = mathima;
         this.Palia_Vathm = Palia_Vathm;
@@ -29,7 +29,7 @@ public class DiorthosiVathmologias {
         this.grammateia = grammateia;
     }
 
-    public DiorthosiVathmologias(String AM_Foititi, Kathigitis kathigitis, Mathima mathima, double Palia_Vathm, double Nea_Vathm, boolean digital_sign, String eksetastiki) {
+    public DiorthosiVathmologias(String AM_Foititi, Kathigitis kathigitis, int mathima, double Palia_Vathm, double Nea_Vathm, boolean digital_sign, String eksetastiki) {
         this.AM_Foititi = AM_Foititi;
         this.kathigitis = kathigitis;
         this.mathima = mathima;
@@ -38,6 +38,10 @@ public class DiorthosiVathmologias {
         this.digital_sign = digital_sign;
         this.eksetastiki = eksetastiki;
     }
+
+  
+
+   
     
     
     public Kathigitis getKathigitis() {
@@ -48,7 +52,7 @@ public class DiorthosiVathmologias {
         return AM_Foititi;
     }
 
-    public Mathima getMathima() {
+    public int getMathima() {
         return mathima;
     }
 
