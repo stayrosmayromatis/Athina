@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  */
 public class Kathigitis extends javax.swing.JFrame {
 
-    private Model.Kathigitis kathigitis = null;
+    //private Model.Kathigitis kathigitis = null;
     public Kathigitis() {
         initComponents();
         Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti();
@@ -36,7 +36,7 @@ public class Kathigitis extends javax.swing.JFrame {
 
     public Kathigitis(Model.Kathigitis kathigitis) {
         initComponents();
-        this.kathigitis = kathigitis;
+        //this.kathigitis = kathigitis;
         jDesktopPane1.removeAll();
         Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti();
         jDesktopPane1.add(sk).setVisible(true);
@@ -331,7 +331,7 @@ public class Kathigitis extends javax.swing.JFrame {
 
     private void DiorthotikesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiorthotikesMouseClicked
         jDesktopPane1.removeAll();
-        Diorthosi_Vathmologias dv = new Diorthosi_Vathmologias(this.kathigitis);
+        Diorthosi_Vathmologias dv = new Diorthosi_Vathmologias();
         jDesktopPane1.add(dv).setVisible(true);
     }//GEN-LAST:event_DiorthotikesMouseClicked
 

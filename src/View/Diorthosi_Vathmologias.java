@@ -21,27 +21,29 @@ import java.util.logging.Logger;
  */
 public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
     //Controller of User Story
-    private Controller_US_06 con6= new Controller_US_06();
+    private Controller_US_06 con6;
     //Dynamically inserting items to the list
     private DefaultListModel<String> model;
     private DefaultListModel<String> model_math;
     private DefaultListModel<String> model_eks;
     //Instance of logged-In kathigitis
-    private Model.Kathigitis kathigitis=null;
+    //private Model.Kathigitis kathigitis=null;
     
-    ArrayList<Model.Mathima> mathima= new ArrayList<>();
-    ArrayList<Model.Eksetastiki> eksetastiki = new ArrayList<>();
+    String mathimata_titles[]=null;
+    String eksetastikes_mathimatos[]=null;
     ArrayList<Model.Mathima> vathm = new ArrayList<>();
-    public Diorthosi_Vathmologias(Model.Kathigitis kathigitis) {
+    
+    public Diorthosi_Vathmologias() {
         initComponents();
+        con6= new Controller_US_06();
         model= new DefaultListModel<String>();
         model_math = new DefaultListModel<>();
         model_eks = new DefaultListModel<>();
-        this.kathigitis=kathigitis;
-        mathima=con6.getMathimataOfKathigitis(kathigitis);
+        //this.kathigitis=kathigitis;
+        mathimata_titles=con6.getMathimataOfKathigitis();   
         //Δυναμικό γέμισμα των μαθημάτων
-        for (int i = 0; i < mathima.size(); i++) {       
-            model.addElement(mathima.get(i).getTitlos());
+        for (int i = 0; i < mathimata_titles.length; i++) {       
+            model.addElement(mathimata_titles[i]);
         }
         jList1.setModel(model);
         jList1.setSelectedIndex(-1);
@@ -49,9 +51,7 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-    Diorthosi_Vathmologias() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -213,11 +213,13 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         model_math.clear();
-        if (jList1.getSelectedIndex() != -1) {
+        if (jList1.getSelectedValue()!= null) {
             eksetastikes.setVisible(true);
-            eksetastiki = con6.getEksetastikesOfMathima(mathima.get(jList1.getSelectedIndex()));
-            for (int i = 0; i<eksetastiki.size() ; i++) {
-                model_math.addElement(eksetastiki.get(i).getKwdikos());
+            System.out.println(jList1.getSelectedValue());    
+            eksetastikes_mathimatos = con6.getEksetastikesOfMathima(jList1.getSelectedValue().toString());
+            System.out.println("Bghka");
+            for (int i = 0; i<eksetastikes_mathimatos.length ; i++) {
+                model_math.addElement(eksetastikes_mathimatos[i]);
             }
             eksetastikes.setModel(model_math);
             eksetastikes.setSelectedIndex(-1);
@@ -240,12 +242,12 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
 
     private void next_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_btnActionPerformed
        try { 
-            if(con6.getVathmologia(AM_txt.getText(), mathima.get(jList1.getSelectedIndex()), eksetastiki.get(eksetastikes.getSelectedIndex())) == -1)
+            if(con6.getVathmologia(AM_txt.getText(),jList1.getSelectedValue().toString(),eksetastikes.getSelectedValue().toString()) == -1)
             {
                 vath.setText("ΔΕΝ ΕΧΕΙ ΚΑΤΑΧΩΡΗΘΕΙ ΒΑΘΜΟΛΟΓΙΑ.");
             }
             else {
-                vath.setText(""+con6.getVathmologia(AM_txt.getText(), mathima.get(jList1.getSelectedIndex()), eksetastiki.get(eksetastikes.getSelectedIndex()))+"");
+                vath.setText(""+con6.getVathmologia(AM_txt.getText(),jList1.getSelectedValue().toString(),eksetastikes.getSelectedValue().toString()));
                 ins_vath.setEnabled(true);
                 save.setEnabled(true);
             }
@@ -258,12 +260,20 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
         double inserted= Double.parseDouble(ins_vath.getText());
         if(inserted >=0.0 && inserted <=10.0)
         {
-            con6.EisagogiDiorthosisVathmologias(kathigitis, mathima.get(jList1.getSelectedIndex()), null, Double.parseDouble(vath.getText()), inserted, eksetastiki.get(eksetastikes.getSelectedIndex()));
+            try 
+            {
+                con6.EisagogiDiorthosisVathmologias(jList1.getSelectedValue().toString(), eksetastikes.getSelectedValue().toString(),AM_txt.getText(),Double.parseDouble(vath.getText()), inserted);
+            } 
+            catch (FileNotFoundException ex) 
+            {
+                Logger.getLogger(Diorthosi_Vathmologias.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             if (con6.SaveVathmologia()) {
-                Message.setText("Η ΒΑΘΜΟΛΟΓΙΑ ΣΑΣ ΣΤΑΛΘΗΚΕ ΕΠΙΤΥΧΩΣ!");
+                Message.setText("Η ΒΑΘΜΟΛΟΓΙΑ ΣΑΣ ΣΤΑΛΘΗΚΕ ΠΡΟΣ ΕΠΙΚΥΡΩΣΗ ΕΠΙΤΥΧΩΣ!");
             }
             else {
-                Message.setText("ΑΠΟΤΥΧΙΑ!");
+                Message.setText("ΑΠΟΤΥΧΙΑ ΑΠΟΣΤΟΛΗΣ.");
             }
         }
         else

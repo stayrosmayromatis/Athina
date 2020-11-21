@@ -16,7 +16,8 @@ public class Controller_US_03 {
     
     public Controller_US_03() {
     }
-    
+    public Model.Kathigitis returnKathigiti(){return this.kathigitis;}
+    public Model.Grammateia returnGrammateia(){return this.grammateia;}
     public String FgetOnoma() {
         
         return foititis.getOnoma();
