@@ -145,6 +145,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        message.setText("");
         String selected = jList1.getSelectedValue(); 
         String parts[] = selected.split(" ");
         try {
@@ -171,6 +172,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
                 message.setText("");
                 isDig.setText("");
                 approve.setEnabled(false);
+                con7.deleteAithmata();
             }
         }
         else

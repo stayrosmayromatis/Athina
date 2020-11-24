@@ -7,7 +7,6 @@ package Controller;
 import Model.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Savepoint;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,19 +16,20 @@ import java.util.Scanner;
  */
 public class Controller_US_06 {
     private DiorthosiVathmologias dv;
-    private Grammateia grammateia=null;
-    private Controller_US_03 con3 = new Controller_US_03();
-    private Model.Kathigitis kathigitis= con3.returnKathigiti();
+    private Grammateia grammateia;
+    private Controller_US_03 con3;
+    private Model.Kathigitis kathigitis;
     private ProgrammaSpoudwn ps;
     private ArrayList<Model.Mathima> mathimata_kathigiti;
     
-    public Model.Grammateia returnGrammateia(){return this.grammateia;}
     
     public Controller_US_06() {
+        this.con3 = new Controller_US_03();
         this.dv=null;
-        this.grammateia=con3.returnGrammateia();
-        ps = new ProgrammaSpoudwn("Tmhma Mhxanikwn Plhroforikhs DI.PA.E", "1/9/2019", "Tmhma Mhxaniwn Plhroforikhs");
-        mathimata_kathigiti= new ArrayList<>();
+        this.grammateia=new Grammateia("info", "password"); //Dummy Object
+        this.kathigitis= con3.returnKathigiti();
+        this.ps = new ProgrammaSpoudwn("Tmhma Mhxanikwn Plhroforikhs DI.PA.E", "1/9/2019", "Tmhma Mhxaniwn Plhroforikhs");
+        this.mathimata_kathigiti= new ArrayList<>();
     }
     
     /*

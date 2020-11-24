@@ -15,7 +15,6 @@ public class Controller_US_03 {
 
     
     public Controller_US_03() {
-        grammateia=new Model.Grammateia("info", "password");
     }
     public Model.Kathigitis returnKathigiti(){return this.kathigitis;}
     public Model.Grammateia returnGrammateia(){return this.grammateia;}
