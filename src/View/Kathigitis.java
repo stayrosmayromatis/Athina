@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View;
+import java.awt.GraphicsEnvironment;
 import java.awt.List;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 
 
@@ -33,7 +35,7 @@ public class Kathigitis extends javax.swing.JFrame {
         Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti();
         jDesktopPane1.add(sk).setVisible(true);
     }
-
+    static boolean maximized = true;
     public Kathigitis(Model.Kathigitis kathigitis) {
         initComponents();
         //this.kathigitis = kathigitis;
@@ -45,9 +47,6 @@ public class Kathigitis extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel_Up = new javax.swing.JPanel();
-        Exit = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel_Left = new javax.swing.JPanel();
         Stoixeia = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -61,54 +60,15 @@ public class Kathigitis extends javax.swing.JFrame {
         Log_out1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        MovePanel = new javax.swing.JPanel();
+        Exit1 = new javax.swing.JLabel();
+        Minimize = new javax.swing.JLabel();
+        Restore = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel_Up.setBackground(new java.awt.Color(60, 63, 65));
-        jPanel_Up.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel_UpMouseDragged(evt);
-            }
-        });
-        jPanel_Up.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel_UpMousePressed(evt);
-            }
-        });
-
-        Exit.setBackground(new java.awt.Color(255, 255, 255));
-        Exit.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
-        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Exit.setText("X");
-        Exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitMouseClicked(evt);
-            }
-        });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Untitled-1.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel_UpLayout = new javax.swing.GroupLayout(jPanel_Up);
-        jPanel_Up.setLayout(jPanel_UpLayout);
-        jPanel_UpLayout.setHorizontalGroup(
-            jPanel_UpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_UpLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 793, Short.MAX_VALUE)
-                .addComponent(Exit)
-                .addContainerGap())
-        );
-        jPanel_UpLayout.setVerticalGroup(
-            jPanel_UpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel_Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
 
         jPanel_Left.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -236,7 +196,7 @@ public class Kathigitis extends javax.swing.JFrame {
             .addGroup(Log_out1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         Log_out1Layout.setVerticalGroup(
             Log_out1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +222,7 @@ public class Kathigitis extends javax.swing.JFrame {
                 .addComponent(Stoixeia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Mathimata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                 .addComponent(Log_out1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel_LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,25 +247,96 @@ public class Kathigitis extends javax.swing.JFrame {
 
         getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 710, 490));
 
+        MovePanel.setBackground(new java.awt.Color(60, 63, 65));
+        MovePanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MovePanelMouseDragged(evt);
+            }
+        });
+        MovePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MovePanelMousePressed(evt);
+            }
+        });
+
+        Exit1.setBackground(new java.awt.Color(255, 255, 255));
+        Exit1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Exit1.setForeground(new java.awt.Color(255, 255, 255));
+        Exit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Exit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close_window_50px.png"))); // NOI18N
+        Exit1.setMaximumSize(new java.awt.Dimension(20, 20));
+        Exit1.setMinimumSize(new java.awt.Dimension(20, 20));
+        Exit1.setPreferredSize(new java.awt.Dimension(20, 20));
+        Exit1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Exit1MouseClicked(evt);
+            }
+        });
+
+        Minimize.setBackground(new java.awt.Color(255, 255, 255));
+        Minimize.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Minimize.setForeground(new java.awt.Color(255, 255, 255));
+        Minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/minimize_window_50px.png"))); // NOI18N
+        Minimize.setMaximumSize(new java.awt.Dimension(20, 20));
+        Minimize.setMinimumSize(new java.awt.Dimension(20, 20));
+        Minimize.setPreferredSize(new java.awt.Dimension(30, 30));
+        Minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinimizeMouseClicked(evt);
+            }
+        });
+
+        Restore.setBackground(new java.awt.Color(255, 255, 255));
+        Restore.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Restore.setForeground(new java.awt.Color(255, 255, 255));
+        Restore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Restore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/restore_window_50px.png"))); // NOI18N
+        Restore.setMaximumSize(new java.awt.Dimension(20, 20));
+        Restore.setMinimumSize(new java.awt.Dimension(20, 20));
+        Restore.setPreferredSize(new java.awt.Dimension(20, 20));
+        Restore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RestoreMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Untitled-1.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout MovePanelLayout = new javax.swing.GroupLayout(MovePanel);
+        MovePanel.setLayout(MovePanelLayout);
+        MovePanelLayout.setHorizontalGroup(
+            MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MovePanelLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 730, Short.MAX_VALUE)
+                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Exit1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1))
+        );
+        MovePanelLayout.setVerticalGroup(
+            MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MovePanelLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MovePanelLayout.createSequentialGroup()
+                .addGroup(MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Exit1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Restore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Minimize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(MovePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_ExitMouseClicked
     int x,y;
-    private void jPanel_UpMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_UpMouseDragged
-        int xx = evt.getXOnScreen();
-        int yy = evt.getYOnScreen();
-        this.setLocation(xx-x,yy-y);
-    }//GEN-LAST:event_jPanel_UpMouseDragged
-
-    private void jPanel_UpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_UpMousePressed
-        x = evt.getX();
-        y = evt.getY();
-    }//GEN-LAST:event_jPanel_UpMousePressed
-
     private void StoixeiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StoixeiaMouseClicked
         jDesktopPane1.removeAll();
         Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti();
@@ -334,6 +365,45 @@ public class Kathigitis extends javax.swing.JFrame {
         Diorthosi_Vathmologias dv = new Diorthosi_Vathmologias();
         jDesktopPane1.add(dv).setVisible(true);
     }//GEN-LAST:event_DiorthotikesMouseClicked
+
+    private void Exit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Exit1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_Exit1MouseClicked
+
+    private void MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseClicked
+        this.setState(1);
+    }//GEN-LAST:event_MinimizeMouseClicked
+
+    private void RestoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoreMouseClicked
+        if(maximized)
+        {
+            //handle fullscreen - taskbar
+            Kathigitis.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            Kathigitis.this.setMaximizedBounds(env.getMaximumWindowBounds());
+
+            maximized = false;
+        }
+        else
+        {
+
+            setExtendedState(JFrame.NORMAL);
+            maximized = true;
+        }
+
+        //handle fullscreen - taskbar
+    }//GEN-LAST:event_RestoreMouseClicked
+    private int xMouse, yMouse;
+    private void MovePanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_MovePanelMouseDragged
+
+    private void MovePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMousePressed
+        xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_MovePanelMousePressed
 
     /**
      * @param args the command line arguments
@@ -378,10 +448,13 @@ public class Kathigitis extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Diorthotikes;
     private javax.swing.JLabel Diorthotikes_Vathmologies_Κ1;
-    private javax.swing.JLabel Exit;
+    private javax.swing.JLabel Exit1;
     private javax.swing.JPanel Log_out1;
     private javax.swing.JPanel Mathimata;
     private javax.swing.JLabel Mathimata_K;
+    private javax.swing.JLabel Minimize;
+    private javax.swing.JPanel MovePanel;
+    private javax.swing.JLabel Restore;
     private javax.swing.JPanel Stoixeia;
     private javax.swing.JLabel Stoixeia_K;
     private javax.swing.JButton jButton1;
@@ -391,6 +464,5 @@ public class Kathigitis extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel_Left;
-    private javax.swing.JPanel jPanel_Up;
     // End of variables declaration//GEN-END:variables
 }

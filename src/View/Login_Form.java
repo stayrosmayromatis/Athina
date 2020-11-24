@@ -6,20 +6,26 @@
 package View;
     import static javax.swing.JOptionPane.*;
     import Controller.Controller_US_03;
+    import java.awt.GraphicsEnvironment;
     import java.io.FileNotFoundException;
-import java.io.IOException;
+    import java.io.IOException;
     import java.util.logging.Level;
     import java.util.logging.Logger;
+    import javax.swing.JFrame;
 /**
  *
  * @author User
  */
 public class Login_Form extends javax.swing.JFrame {
    Controller_US_03 con ;
+   
     public Login_Form() {
         initComponents();
         con= new Controller_US_03();
     }
+    
+    static boolean maximized = true;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,9 +37,6 @@ public class Login_Form extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        ihu_icon = new javax.swing.JLabel();
-        ATHINA = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Username = new javax.swing.JTextField();
         Password = new javax.swing.JPasswordField();
@@ -41,46 +44,19 @@ public class Login_Form extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         user_icon = new javax.swing.JLabel();
         password_icon = new javax.swing.JLabel();
-        Exit = new javax.swing.JLabel();
         LogIn = new javax.swing.JButton();
+        MovePanel = new javax.swing.JPanel();
+        Exit = new javax.swing.JLabel();
+        Minimize = new javax.swing.JLabel();
+        Restore = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        ihu_icon = new javax.swing.JLabel();
+        ATHINA = new javax.swing.JLabel();
+        MovePanel_Left = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-
-        ihu_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ihu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ihu_logo.png__200x200_q75_background-#fff_subsampling-2.png"))); // NOI18N
-        ihu_icon.setToolTipText("");
-
-        ATHINA.setBackground(new java.awt.Color(0, 51, 102));
-        ATHINA.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
-        ATHINA.setForeground(new java.awt.Color(0, 51, 102));
-        ATHINA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ATHINA.setText("ATHINA");
-        ATHINA.setToolTipText("");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ATHINA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ihu_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(ihu_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ATHINA, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
-        );
 
         jPanel3.setBackground(new java.awt.Color(60, 63, 65));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,18 +102,6 @@ public class Login_Form extends javax.swing.JFrame {
         password_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/unlock_26px_1.png"))); // NOI18N
         jPanel3.add(password_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 153, -1, -1));
 
-        Exit.setBackground(new java.awt.Color(255, 255, 255));
-        Exit.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
-        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Exit.setText("X");
-        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitMouseClicked(evt);
-            }
-        });
-        jPanel3.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 0, 30, 40));
-
         LogIn.setBackground(new java.awt.Color(60, 63, 65));
         LogIn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LogIn.setText("Log In");
@@ -151,14 +115,150 @@ public class Login_Form extends javax.swing.JFrame {
         });
         jPanel3.add(LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 100, 30));
 
+        MovePanel.setBackground(new java.awt.Color(60, 63, 65));
+        MovePanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MovePanelMouseDragged(evt);
+            }
+        });
+        MovePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MovePanelMousePressed(evt);
+            }
+        });
+
+        Exit.setBackground(new java.awt.Color(255, 255, 255));
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close_window_50px.png"))); // NOI18N
+        Exit.setMaximumSize(new java.awt.Dimension(20, 20));
+        Exit.setMinimumSize(new java.awt.Dimension(20, 20));
+        Exit.setPreferredSize(new java.awt.Dimension(20, 20));
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
+
+        Minimize.setBackground(new java.awt.Color(255, 255, 255));
+        Minimize.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Minimize.setForeground(new java.awt.Color(255, 255, 255));
+        Minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/minimize_window_50px.png"))); // NOI18N
+        Minimize.setMaximumSize(new java.awt.Dimension(20, 20));
+        Minimize.setMinimumSize(new java.awt.Dimension(20, 20));
+        Minimize.setPreferredSize(new java.awt.Dimension(30, 30));
+        Minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinimizeMouseClicked(evt);
+            }
+        });
+
+        Restore.setBackground(new java.awt.Color(255, 255, 255));
+        Restore.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Restore.setForeground(new java.awt.Color(255, 255, 255));
+        Restore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Restore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/restore_window_50px.png"))); // NOI18N
+        Restore.setMaximumSize(new java.awt.Dimension(20, 20));
+        Restore.setMinimumSize(new java.awt.Dimension(20, 20));
+        Restore.setPreferredSize(new java.awt.Dimension(20, 20));
+        Restore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RestoreMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MovePanelLayout = new javax.swing.GroupLayout(MovePanel);
+        MovePanel.setLayout(MovePanelLayout);
+        MovePanelLayout.setHorizontalGroup(
+            MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MovePanelLayout.createSequentialGroup()
+                .addContainerGap(605, Short.MAX_VALUE)
+                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1))
+        );
+        MovePanelLayout.setVerticalGroup(
+            MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Restore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(MovePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, 0, 700, 30));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(900, 464));
+
+        ihu_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ihu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ihu_logo.png__200x200_q75_background-#fff_subsampling-2.png"))); // NOI18N
+        ihu_icon.setToolTipText("");
+
+        ATHINA.setBackground(new java.awt.Color(0, 51, 102));
+        ATHINA.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
+        ATHINA.setForeground(new java.awt.Color(0, 51, 102));
+        ATHINA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ATHINA.setText("ATHINA");
+        ATHINA.setToolTipText("");
+
+        MovePanel_Left.setBackground(new java.awt.Color(204, 204, 255));
+        MovePanel_Left.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MovePanel_LeftMouseDragged(evt);
+            }
+        });
+        MovePanel_Left.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MovePanel_LeftMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MovePanel_LeftLayout = new javax.swing.GroupLayout(MovePanel_Left);
+        MovePanel_Left.setLayout(MovePanel_LeftLayout);
+        MovePanel_LeftLayout.setHorizontalGroup(
+            MovePanel_LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        MovePanel_LeftLayout.setVerticalGroup(
+            MovePanel_LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MovePanel_Left, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ATHINA, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ihu_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(MovePanel_Left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(ihu_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ATHINA, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +268,7 @@ public class Login_Form extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -212,6 +312,54 @@ public class Login_Form extends javax.swing.JFrame {
            Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
        }        
     }//GEN-LAST:event_LogInActionPerformed
+
+    private int xMouse, yMouse;
+    private void MovePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMousePressed
+        xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_MovePanelMousePressed
+
+    private void MovePanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_MovePanelMouseDragged
+
+    private void RestoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoreMouseClicked
+        if(maximized)
+        {
+            //handle fullscreen - taskbar
+            Login_Form.this.setExtendedState(JFrame.MAXIMIZED_BOTH);  
+            GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();  
+            Login_Form.this.setMaximizedBounds(env.getMaximumWindowBounds());
+            
+            maximized = false;
+         }
+        else
+        {
+            
+            setExtendedState(JFrame.NORMAL);
+            maximized = true;
+        }
+      
+        
+        //handle fullscreen - taskbar
+    }//GEN-LAST:event_RestoreMouseClicked
+
+    private void MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseClicked
+        this.setState(1);
+    }//GEN-LAST:event_MinimizeMouseClicked
+
+    private void MovePanel_LeftMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanel_LeftMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_MovePanel_LeftMouseDragged
+   
+    private void MovePanel_LeftMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanel_LeftMousePressed
+        xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_MovePanel_LeftMousePressed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -251,7 +399,11 @@ public class Login_Form extends javax.swing.JFrame {
     private javax.swing.JLabel ATHINA;
     private javax.swing.JLabel Exit;
     private javax.swing.JButton LogIn;
+    private javax.swing.JLabel Minimize;
+    private javax.swing.JPanel MovePanel;
+    private javax.swing.JPanel MovePanel_Left;
     private javax.swing.JPasswordField Password;
+    private javax.swing.JLabel Restore;
     private javax.swing.JTextField Username;
     private javax.swing.JLabel ihu_icon;
     private javax.swing.JPanel jPanel1;
