@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Grammateia extends Xristis {
     private String email;
     private String aithma;
+    private ProgrammaSpoudwn ps;
     private ArrayList<DiorthosiVathmologias> diorthoseisVathmologias =  new ArrayList<>();
     private ArrayList<Dilwsi> dilwseis =  new ArrayList<>();
     

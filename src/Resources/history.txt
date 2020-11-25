@@ -4,3 +4,6 @@ it174896 ignatios 1510 10.0 2.0 true Χειμερινή
 it174896 ignatios 1510 10.0 2.0 true Χειμερινή
 it174896 ignatios 1510 10.0 3.2 true Χειμερινή
 it174896 ignatios 1510 10.0 3.2 true Χειμερινή
+it174974 ignatios 1511 7.2 8.1 true Εαρινή
+it174974 ignatios 1511 7.2 8.1 true Εαρινή
+it174896 ignatios 1510 10.0 9.5 true Χειμερινή

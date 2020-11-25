@@ -160,6 +160,7 @@ public class Controller_US_06 {
         }
             dv=new DiorthosiVathmologias(f_temp.getUsername(), this.kathigitis, m_temp.getID(), Palia_Vathm, Nea_Vathm, this.kathigitis.getDigital_signature(), eksetastikh);
             dv.setGrammateia(this.grammateia);
+            this.kathigitis.addDiorthoshVathmologiasToKathigiti(dv);
     }
     
     public boolean SaveVathmologia()

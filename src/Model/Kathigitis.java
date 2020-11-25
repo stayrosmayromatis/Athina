@@ -12,6 +12,7 @@ public class Kathigitis extends Xristis{
     private String email;
     private boolean digital_signature;
     private ArrayList<Mathima> mathimata=new ArrayList<>();
+    private ArrayList<DiorthosiVathmologias> ypovlithises_diorthwseis=new ArrayList<>();
 
     public Kathigitis(String username, String password) {
         super(username, password);
@@ -24,6 +25,16 @@ public class Kathigitis extends Xristis{
         this.email = email;
         this.digital_signature = digital_signature;
     }
+
+    public Kathigitis(String onoma, String email, boolean digital_signature, String username, String password,ArrayList<Mathima> mathimata) {
+        super(username, password);
+        this.onoma = onoma;
+        this.email = email;
+        this.digital_signature = digital_signature;
+        this.mathimata=mathimata;
+    }
+    
+    
     
     public static Kathigitis getKathigitis(String onoma) throws FileNotFoundException
     {
@@ -94,6 +105,14 @@ public class Kathigitis extends Xristis{
 
     public void setMathimata(ArrayList<Mathima> mathimata) {
         this.mathimata = mathimata;
+    }
+    
+    public ArrayList<DiorthosiVathmologias> getYpovlithises_diorthwseis() {
+        return ypovlithises_diorthwseis;
+    }
+
+    public void addDiorthoshVathmologiasToKathigiti(DiorthosiVathmologias ypovlithises_diorthwseis) {
+        this.ypovlithises_diorthwseis.add(ypovlithises_diorthwseis);
     }
   
 }

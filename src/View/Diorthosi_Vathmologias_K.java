@@ -150,11 +150,11 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
         String parts[] = selected.split(" ");
         try {
             if (con7.checkDigSig(jList1.getSelectedIndex())) {
-                isDig.setText("Ο καθηγητής : "+parts[0]+" "+parts[1]+" κατέχει ψηφιακή υπογραφή.");
+                isDig.setText("Ο καθηγητής : "+parts[0]+" κατέχει ψηφιακή υπογραφή.");
                 approve.setEnabled(true);
             } 
             else {
-                isDig.setText("Ο καθηγητής : "+parts[0]+" "+parts[1]+" δεν κατέχει ψηφιακή υπογραφή.");
+                isDig.setText("Ο καθηγητής : "+parts[0]+" δεν κατέχει ψηφιακή υπογραφή.");
                 approve.setEnabled(false);
             }
         } catch (FileNotFoundException ex) {

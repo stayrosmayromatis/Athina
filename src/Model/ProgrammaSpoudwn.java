@@ -6,6 +6,7 @@ public class ProgrammaSpoudwn {
     private String ID;
     private String hmeromhnia_arxhs;
     private String tmhma;
+    private Grammateia grammateia;
     private ArrayList<Mathima> lista_mathimatwn=new ArrayList<>();
 
     public ProgrammaSpoudwn(String ID, String hmeromhnia_arxhs, String tmhma) {
