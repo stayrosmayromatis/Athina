@@ -15,3 +15,6 @@ it174974 ignatios 1510 5.0 6.0 true Χειμερινή
 it174974 ignatios 1510 6.0 2.0 true Χειμερινή
 it174974 ignatios 1510 2.0 5.0 true Χειμερινή
 it174974 euclid 1513 9.0 2.0 true Εαρινή
+it174974 euclid 1513 2.0 5.0 true Εαρινή
+it174974 euclid 1513 2.0 5.0 true Εαρινή
+it174974 euclid 1513 2.0 5.0 true Εαρινή

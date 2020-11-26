@@ -265,7 +265,7 @@ public class Grammateia extends javax.swing.JFrame {
             }
         });
 
-        Diorthotikes_Vathmologies_G1.setText("Έγκρισεις  Βαθμολογίας");
+        Diorthotikes_Vathmologies_G1.setText("Εγκρίσεις  Βαθμολογίας");
         Diorthotikes_Vathmologies_G1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Diorthotikes_Vathmologies_G1MouseClicked(evt);
