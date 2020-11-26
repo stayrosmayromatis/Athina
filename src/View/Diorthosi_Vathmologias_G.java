@@ -7,28 +7,26 @@ package View;
 
 import Controller.Controller_US_07;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
-import Model.*;
-import Controller.*;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author User
  */
-public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
+public class Diorthosi_Vathmologias_G extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Diorthosi_Vathmologias
+     * Creates new form Diorthosi_Vathmologias_G
      */
     private Controller_US_07 con7;
     private DefaultListModel<String> model_dv;
     private String[] vathmologies = null;
     
-    public Diorthosi_Vathmologias_K() throws FileNotFoundException {
+    public Diorthosi_Vathmologias_G() throws FileNotFoundException {
         try
         {
              
@@ -47,8 +45,8 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
         }
         catch(FileNotFoundException fnf)
         {
-            System.out.println("File was not found");
-            return;
+            showMessageDialog(null, "File was not found", "Error", ERROR_MESSAGE);
+            
         }
        
     }
@@ -168,7 +166,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
                 approve.setEnabled(false);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Diorthosi_Vathmologias_K.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Diorthosi_Vathmologias_G.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jList1MouseClicked
 

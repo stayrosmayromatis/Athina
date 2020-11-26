@@ -173,7 +173,7 @@ public class Grammateia extends javax.swing.JFrame {
             MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MovePanelLayout.createSequentialGroup()
                 .addGroup(MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -197,8 +197,9 @@ public class Grammateia extends javax.swing.JFrame {
         StoixeiaLayout.setHorizontalGroup(
             StoixeiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(StoixeiaLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Stoixeia_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Stoixeia_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
         StoixeiaLayout.setVerticalGroup(
             StoixeiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +222,9 @@ public class Grammateia extends javax.swing.JFrame {
         Programma_SpoudwnLayout.setHorizontalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Programma_SpoudwnLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Programma_Spoudwn_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Programma_Spoudwn_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
         Programma_SpoudwnLayout.setVerticalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,8 +247,9 @@ public class Grammateia extends javax.swing.JFrame {
         DhlwseisLayout.setHorizontalGroup(
             DhlwseisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DhlwseisLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Dhlwseis_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Dhlwseis_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
         DhlwseisLayout.setVerticalGroup(
             DhlwseisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,9 +385,9 @@ public class Grammateia extends javax.swing.JFrame {
 
     private void Diorthotikes_Vathmologies_G1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Diorthotikes_Vathmologies_G1MouseClicked
         jDesktopPane1.removeAll();
-        View.Diorthosi_Vathmologias_K dv = null;
+        View.Diorthosi_Vathmologias_G dv = null;
         try {
-            dv = new Diorthosi_Vathmologias_K();
+            dv = new Diorthosi_Vathmologias_G();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Grammateia.class.getName()).log(Level.SEVERE, null, ex);
         }

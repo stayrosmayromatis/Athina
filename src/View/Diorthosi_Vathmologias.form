@@ -63,6 +63,7 @@
                               </Group>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -73,6 +74,18 @@
                               </Group>
                               <Component id="Message" max="32767" attributes="0"/>
                           </Group>
+=======
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="Message" min="-2" pref="321" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="vath" min="-2" pref="253" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ins_vath" min="-2" pref="131" max="-2" attributes="0"/>
+>>>>>>> d81db89b30bf83a031b03a93fff78564792c9f03
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="save" min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
@@ -102,13 +115,15 @@
                           <Component id="next_btn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="save" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ins_vath" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="vath" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="save" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ins_vath" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="vath" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="Message" min="-2" max="-2" attributes="0"/>
