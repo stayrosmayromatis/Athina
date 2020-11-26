@@ -8,8 +8,6 @@ package View;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
-import Model.*;
 import Controller.*;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
@@ -156,17 +154,16 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(next_btn))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(vath, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ins_vath, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(Message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -194,9 +191,9 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
                         .addComponent(save)
                         .addComponent(ins_vath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(vath, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addComponent(Message)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,9 +270,17 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
             
             if (con6.SaveVathmologia()) {
                 Message.setText("Η ΒΑΘΜΟΛΟΓΙΑ ΣΑΣ ΣΤΑΛΘΗΚΕ ΠΡΟΣ ΕΠΙΚΥΡΩΣΗ ΕΠΙΤΥΧΩΣ!");
+                AM_txt.setText(" ");
+                vath.setText(" ");
+                ins_vath.setText(" ");
+                save.setEnabled(false);
             }
             else {
                 Message.setText("ΑΠΟΤΥΧΙΑ ΑΠΟΣΤΟΛΗΣ.");
+                AM_txt.setText(" ");
+                vath.setText(" ");
+                ins_vath.setText(" ");
+                save.setEnabled(false);
             }
         }
         else

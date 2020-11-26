@@ -45,7 +45,7 @@ public class Diorthosi_Vathmologias_G extends javax.swing.JInternalFrame {
         }
         catch(FileNotFoundException fnf)
         {
-            showMessageDialog(null, "File was not found", "Error", ERROR_MESSAGE);
+            showMessageDialog(null, "Δεν έχει καταχωρηθεί κανένα αίτημα.", "Error", ERROR_MESSAGE);
             
         }
        
