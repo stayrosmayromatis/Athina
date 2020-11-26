@@ -32,6 +32,10 @@ public class Controller_US_06 {
         this.mathimata_kathigiti= new ArrayList<>();
     }
     
+    public void assignCoursesToTeacher()
+    {
+    
+    }
     /*
     *Οταν περνιέται όλο το αντικείμενο του καθηγητή
     *Τοτε επιστρέφεται όλο το ArrayList με τα μαθήματα του
@@ -81,8 +85,8 @@ public class Controller_US_06 {
         mathimata_kathigiti.add(prog1);
         mathimata_kathigiti.add(prog2);
         mathimata_kathigiti.add(prog3);
-        
         this.kathigitis.setMathimata(mathimata_kathigiti);
+        
         mathimata_kathigiti=this.kathigitis.getMathimata();
         String mathimata_titles[]=new String[mathimata_kathigiti.size()];
         for (int i = 0; i < mathimata_kathigiti.size(); i++) {

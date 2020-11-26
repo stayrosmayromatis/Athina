@@ -1,5 +1,1 @@
-it174896 ignatios 1510 10.0 9.7 true Χειμερινή
-it174974 euclid 1511 7.2 8.1 true Εαρινή
-it174896 ignatios 1510 10.0 9.7 true Χειμερινή
-it174896 ignatios 1510 10.0 9.5 true Χειμερινή
-it174974 antoniou 1511 8.1 9.5 true Εαρινή
+it174896 ignatios 1510 2.3 5.7 true Χειμερινή

@@ -29,18 +29,28 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     private String[] vathmologies = null;
     
     public Diorthosi_Vathmologias_K() throws FileNotFoundException {
-        initComponents();   
-        con7 = new Controller_US_07();
-        model_dv = new DefaultListModel<String>();
-        vathmologies = con7.getDiorthoseisVathmologias();
-        for (int i = 0; i < vathmologies.length; i++) {
-            model_dv.addElement(vathmologies[i]);  
+        try
+        {
+             
+            con7 = new Controller_US_07();
+            model_dv = new DefaultListModel<String>();
+            vathmologies = con7.getDiorthoseisVathmologias();
+            for (int i = 0; i < vathmologies.length; i++) {
+                model_dv.addElement(vathmologies[i]);  
+            }
+            initComponents(); 
+            jList1.setModel(model_dv);
+            jList1.setSelectedIndex(-1);
+            this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+            BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+            bi.setNorthPane(null);    
         }
-        jList1.setModel(model_dv);
-        jList1.setSelectedIndex(-1);
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
-        bi.setNorthPane(null);
+        catch(FileNotFoundException fnf)
+        {
+            System.out.println("File was not found");
+            return;
+        }
+       
     }
 
     /**
@@ -169,7 +179,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
             model_dv.remove(jList1.getSelectedIndex());
             if(model_dv.isEmpty())
             {
-                message.setText("");
+                message.setText("Η ΔΙΟΡΘΩΣΗ ΒΑΘΜΟΛΟΓΙΑΣ ΕΚΓΡΙΘΗΚΕ");
                 isDig.setText("");
                 approve.setEnabled(false);
                 con7.deleteAithmata();
