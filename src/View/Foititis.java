@@ -5,7 +5,6 @@
  */
 package View;
 
-//import java.awt.Toolkit;
 import Controller.Controller_US_03;
 import java.awt.Color;
 import java.io.IOException;
