@@ -197,8 +197,9 @@ public class Grammateia extends javax.swing.JFrame {
         StoixeiaLayout.setHorizontalGroup(
             StoixeiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(StoixeiaLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Stoixeia_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Stoixeia_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
         StoixeiaLayout.setVerticalGroup(
             StoixeiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +222,9 @@ public class Grammateia extends javax.swing.JFrame {
         Programma_SpoudwnLayout.setHorizontalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Programma_SpoudwnLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Programma_Spoudwn_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Programma_Spoudwn_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
         Programma_SpoudwnLayout.setVerticalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,8 +247,9 @@ public class Grammateia extends javax.swing.JFrame {
         DhlwseisLayout.setHorizontalGroup(
             DhlwseisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DhlwseisLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Dhlwseis_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Dhlwseis_G, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
         DhlwseisLayout.setVerticalGroup(
             DhlwseisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
