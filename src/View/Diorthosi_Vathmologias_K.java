@@ -163,7 +163,7 @@ public class Diorthosi_Vathmologias_K extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jList1MouseClicked
 
     private void approveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveActionPerformed
-        if(con7.SaveDiorthosiVathmologias(jList1.getSelectedIndex()))
+        if(con7.SaveDiorthosiVathmologias(jList1.getSelectedValue()))
         {
             message.setText("Η ΔΙΟΡΘΩΣΗ ΒΑΘΜΟΛΟΓΙΑΣ ΕΚΓΡΙΘΗΚΕ");
             model_dv.remove(jList1.getSelectedIndex());

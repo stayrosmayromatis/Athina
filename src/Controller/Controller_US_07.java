@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import Controller.Controller_US_06;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -46,23 +48,61 @@ public class Controller_US_07 {
         return temp.get(idx).checkDigitalSign(temp.get(idx));
     }
     
-    public boolean SaveDiorthosiVathmologias(int idx)
+    public boolean SaveDiorthosiVathmologias(String selected)
     {
         File history = new File(".\\src\\Resources\\history.txt");
+        File vathmologiesModified = new File(".\\src\\Resources\\vathmologies.txt");
+        int idx=-1;
+        //Getting the index of the selected List line in the ArrayList<Model.Diorthoseis>
+        String parts[]=selected.split(" ");
+        for (int i = 0; i < temp.size(); i++) {
+            if(temp.get(i).getAM_Foititi().equals(parts[2]))
+            {
+                if(temp.get(i).getMathima()==Integer.parseInt(parts[1]))
+                {
+                    if(temp.get(i).getPalia_Vathm()==Double.parseDouble(parts[3]))
+                    {
+                        if(temp.get(i).getNea_Vathm()==Double.parseDouble(parts[4]))
+                        {
+                            idx=i;
+                        }
+                    }
+                }
+            }
+        }
         try
         {
             if(!history.exists())
             {
-                System.out.println("Making new history file");
+                System.out.println("New History Files need to be made!");
                 history.createNewFile();
-            }
-            FileWriter fileWriter = new FileWriter(history,true);
+            }      
+            FileWriter fileWriter = new FileWriter(history,true);//appending =true;
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(temp.get(idx).getAM_Foititi()+" "+temp.get(idx).getKathigitis().getUsername()+" "+temp.get(idx).getMathima()+" "+temp.get(idx).getPalia_Vathm()+" "+temp.get(idx).getNea_Vathm()+" "+temp.get(idx).getKathigitis().getDigital_signature()+" "+temp.get(idx).getEksetastiki()+"\n");
-            System.out.println("Log File Successfully Written");
+            System.out.println("History File Successfully Written");
             bufferedWriter.close();
-            return true;
+            //Getting all of vathmologies file into one big String
+            String oldContent = ""; 
+            BufferedReader reader = new BufferedReader(new FileReader(vathmologiesModified));
+            String line = reader.readLine();
+             while (line != null) 
+            {
+                oldContent += line+System.lineSeparator();
+                line = reader.readLine();
             }
+            //Replacing the Palia Vathmologia with the Nea Valid Vathmologia 
+            String oldString=temp.get(idx).getAM_Foititi()+" "+temp.get(idx).getMathima()+" "+temp.get(idx).getEksetastiki()+" "+temp.get(idx).getPalia_Vathm();
+            String newString=temp.get(idx).getAM_Foititi()+" "+temp.get(idx).getMathima()+" "+temp.get(idx).getEksetastiki()+" "+temp.get(idx).getNea_Vathm();
+            String newContent = oldContent.replaceAll(oldString, newString);
+            //Rewriting all of the file as it were
+            FileWriter  writer = new FileWriter(vathmologiesModified);  
+            writer.write(newContent);
+            reader.close();     
+            writer.close();
+            return true;
+            
+        }
         catch(IOException e)
         {
             System.out.println("COULD NOT LOG!!");
@@ -72,7 +112,7 @@ public class Controller_US_07 {
     
     public void deleteAithmata()
     {
-         Path path = FileSystems.getDefault().getPath(".\\src\\Resources\\aithmata.txt");
+        Path path = FileSystems.getDefault().getPath(".\\src\\Resources\\aithmata.txt");
         try {
             Files.delete(path);
             System.out.println("All pending resolved!");
