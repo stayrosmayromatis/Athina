@@ -21,7 +21,8 @@ public class Kathigitis extends javax.swing.JFrame {
         Stoixeia_Kathigiti sk = new Stoixeia_Kathigiti();
         jDesktopPane1.add(sk).setVisible(true);
     }
-    static boolean maximized = true;
+    
+    
     public Kathigitis(Model.Kathigitis kathigitis) {
         initComponents();
         //this.kathigitis = kathigitis;

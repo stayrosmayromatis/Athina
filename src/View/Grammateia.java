@@ -37,7 +37,7 @@ public class Grammateia extends javax.swing.JFrame {
         jDesktopPane1.add(sk).setVisible(true);
     }
     
-    static boolean maximized = true;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,6 +53,7 @@ public class Grammateia extends javax.swing.JFrame {
         Minimize1 = new javax.swing.JLabel();
         ButtonExit = new javax.swing.JPanel();
         Exit = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel_Left = new javax.swing.JPanel();
         Stoixeia = new javax.swing.JPanel();
         Stoixeia_G = new javax.swing.JLabel();
@@ -64,7 +65,6 @@ public class Grammateia extends javax.swing.JFrame {
         Diorthotikes_Vathmologies_G1 = new javax.swing.JLabel();
         Log_out = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -180,6 +180,19 @@ public class Grammateia extends javax.swing.JFrame {
         );
 
         getContentPane().add(MovePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 30));
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 710, 490));
 
         jPanel_Left.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -335,19 +348,6 @@ public class Grammateia extends javax.swing.JFrame {
 
         getContentPane().add(jPanel_Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -384,13 +384,13 @@ public class Grammateia extends javax.swing.JFrame {
         }
         jDesktopPane1.add(dv).setVisible(true);
     }//GEN-LAST:event_Diorthotikes_Vathmologies_G1MouseClicked
-
+    private int xMouse, yMouse;
     private void MovePanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_MovePanelMouseDragged
-    private int xMouse, yMouse;
+    
     private void MovePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMousePressed
         xMouse=evt.getX();
         yMouse=evt.getY();
