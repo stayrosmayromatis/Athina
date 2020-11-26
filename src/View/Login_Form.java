@@ -6,26 +6,25 @@
 package View;
     import static javax.swing.JOptionPane.*;
     import Controller.Controller_US_03;
-    import java.awt.GraphicsEnvironment;
+    import java.awt.Color;
     import java.io.FileNotFoundException;
     import java.io.IOException;
     import java.util.logging.Level;
     import java.util.logging.Logger;
-    import javax.swing.JFrame;
+    import javax.swing.ImageIcon;
+    import javax.swing.JPanel;
 /**
  *
  * @author User
  */
 public class Login_Form extends javax.swing.JFrame {
-   Controller_US_03 con ;
+    Controller_US_03 con ;
    
     public Login_Form() {
         initComponents();
         con= new Controller_US_03();
+        
     }
-    
-    static boolean maximized = true;
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +35,7 @@ public class Login_Form extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         Username = new javax.swing.JTextField();
@@ -46,15 +46,28 @@ public class Login_Form extends javax.swing.JFrame {
         password_icon = new javax.swing.JLabel();
         LogIn = new javax.swing.JButton();
         MovePanel = new javax.swing.JPanel();
-        Exit = new javax.swing.JLabel();
+        ButtonMinimize = new javax.swing.JPanel();
         Minimize = new javax.swing.JLabel();
-        Restore = new javax.swing.JLabel();
+        ButtonExit = new javax.swing.JPanel();
+        Exit = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         ihu_icon = new javax.swing.JLabel();
         ATHINA = new javax.swing.JLabel();
         MovePanel_Left = new javax.swing.JPanel();
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -127,19 +140,8 @@ public class Login_Form extends javax.swing.JFrame {
             }
         });
 
-        Exit.setBackground(new java.awt.Color(255, 255, 255));
-        Exit.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
-        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close_window_50px.png"))); // NOI18N
-        Exit.setMaximumSize(new java.awt.Dimension(20, 20));
-        Exit.setMinimumSize(new java.awt.Dimension(20, 20));
-        Exit.setPreferredSize(new java.awt.Dimension(20, 20));
-        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitMouseClicked(evt);
-            }
-        });
+        ButtonMinimize.setBackground(new java.awt.Color(60, 63, 65));
+        ButtonMinimize.setForeground(new java.awt.Color(255, 51, 102));
 
         Minimize.setBackground(new java.awt.Color(255, 255, 255));
         Minimize.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -153,43 +155,87 @@ public class Login_Form extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MinimizeMouseClicked(evt);
             }
-        });
-
-        Restore.setBackground(new java.awt.Color(255, 255, 255));
-        Restore.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Restore.setForeground(new java.awt.Color(255, 255, 255));
-        Restore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Restore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/restore_window_50px.png"))); // NOI18N
-        Restore.setMaximumSize(new java.awt.Dimension(20, 20));
-        Restore.setMinimumSize(new java.awt.Dimension(20, 20));
-        Restore.setPreferredSize(new java.awt.Dimension(20, 20));
-        Restore.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RestoreMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MinimizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MinimizeMouseExited(evt);
             }
         });
+
+        javax.swing.GroupLayout ButtonMinimizeLayout = new javax.swing.GroupLayout(ButtonMinimize);
+        ButtonMinimize.setLayout(ButtonMinimizeLayout);
+        ButtonMinimizeLayout.setHorizontalGroup(
+            ButtonMinimizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonMinimizeLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        ButtonMinimizeLayout.setVerticalGroup(
+            ButtonMinimizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonMinimizeLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        ButtonExit.setBackground(new java.awt.Color(60, 63, 65));
+
+        Exit.setBackground(new java.awt.Color(255, 255, 255));
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close_window_50px.png"))); // NOI18N
+        Exit.setMaximumSize(new java.awt.Dimension(20, 20));
+        Exit.setMinimumSize(new java.awt.Dimension(20, 20));
+        Exit.setPreferredSize(new java.awt.Dimension(20, 20));
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExitMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ButtonExitLayout = new javax.swing.GroupLayout(ButtonExit);
+        ButtonExit.setLayout(ButtonExitLayout);
+        ButtonExitLayout.setHorizontalGroup(
+            ButtonExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ButtonExitLayout.createSequentialGroup()
+                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        ButtonExitLayout.setVerticalGroup(
+            ButtonExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonExitLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout MovePanelLayout = new javax.swing.GroupLayout(MovePanel);
         MovePanel.setLayout(MovePanelLayout);
         MovePanelLayout.setHorizontalGroup(
             MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MovePanelLayout.createSequentialGroup()
-                .addContainerGap(605, Short.MAX_VALUE)
-                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(629, Short.MAX_VALUE)
+                .addComponent(ButtonMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                .addComponent(ButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         MovePanelLayout.setVerticalGroup(
             MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Restore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MovePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonMinimize, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel3.add(MovePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, 0, 700, 30));
+        jPanel3.add(MovePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, 0, 710, 30));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 464));
@@ -225,7 +271,7 @@ public class Login_Form extends javax.swing.JFrame {
         );
         MovePanel_LeftLayout.setVerticalGroup(
             MovePanel_LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
+            .addGap(0, 43, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -248,7 +294,7 @@ public class Login_Form extends javax.swing.JFrame {
                 .addComponent(ihu_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ATHINA, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -258,7 +304,7 @@ public class Login_Form extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +316,7 @@ public class Login_Form extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
-        pack();
+        setSize(new java.awt.Dimension(690, 459));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -325,27 +371,6 @@ public class Login_Form extends javax.swing.JFrame {
         setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_MovePanelMouseDragged
 
-    private void RestoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoreMouseClicked
-        if(maximized)
-        {
-            //handle fullscreen - taskbar
-            Login_Form.this.setExtendedState(JFrame.MAXIMIZED_BOTH);  
-            GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();  
-            Login_Form.this.setMaximizedBounds(env.getMaximumWindowBounds());
-            
-            maximized = false;
-         }
-        else
-        {
-            
-            setExtendedState(JFrame.NORMAL);
-            maximized = true;
-        }
-      
-        
-        //handle fullscreen - taskbar
-    }//GEN-LAST:event_RestoreMouseClicked
-
     private void MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseClicked
         this.setState(1);
     }//GEN-LAST:event_MinimizeMouseClicked
@@ -360,6 +385,26 @@ public class Login_Form extends javax.swing.JFrame {
         xMouse=evt.getX();
         yMouse=evt.getY();
     }//GEN-LAST:event_MovePanel_LeftMousePressed
+    
+    public void changecolor(JPanel hover, Color rand){
+        hover.setBackground(rand);
+    }
+    
+    private void ExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseEntered
+        changecolor(ButtonExit, new Color(25, 29, 74));
+    }//GEN-LAST:event_ExitMouseEntered
+
+    private void ExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseExited
+        changecolor(ButtonExit, new Color(60,63,65));
+    }//GEN-LAST:event_ExitMouseExited
+
+    private void MinimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseEntered
+        changecolor(ButtonMinimize, new Color(25, 29, 74));
+    }//GEN-LAST:event_MinimizeMouseEntered
+
+    private void MinimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseExited
+        changecolor(ButtonMinimize, new Color(60,63,65));
+    }//GEN-LAST:event_MinimizeMouseExited
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -386,6 +431,10 @@ public class Login_Form extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -397,18 +446,20 @@ public class Login_Form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ATHINA;
+    private javax.swing.JPanel ButtonExit;
+    private javax.swing.JPanel ButtonMinimize;
     private javax.swing.JLabel Exit;
     private javax.swing.JButton LogIn;
     private javax.swing.JLabel Minimize;
     private javax.swing.JPanel MovePanel;
     private javax.swing.JPanel MovePanel_Left;
     private javax.swing.JPasswordField Password;
-    private javax.swing.JLabel Restore;
     private javax.swing.JTextField Username;
     private javax.swing.JLabel ihu_icon;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel password_icon;

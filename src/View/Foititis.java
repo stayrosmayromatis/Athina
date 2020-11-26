@@ -7,22 +7,11 @@ package View;
 
 //import java.awt.Toolkit;
 import Controller.Controller_US_03;
-import java.awt.GraphicsEnvironment;
-import java.awt.List;
-import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.awt.Color;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 /**
@@ -59,19 +48,17 @@ public class Foititis extends javax.swing.JFrame {
     private void initComponents() {
 
         MovePanel = new javax.swing.JPanel();
-        Exit1 = new javax.swing.JLabel();
-        Minimize = new javax.swing.JLabel();
-        Restore = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        ButtonMinimize = new javax.swing.JPanel();
+        Minimize1 = new javax.swing.JLabel();
+        ButtonExit = new javax.swing.JPanel();
+        Exit = new javax.swing.JLabel();
         jPanel_Left = new javax.swing.JPanel();
         Stoixeia = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         Stoixeia_F = new javax.swing.JLabel();
         Programma_Spoudwn = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         Programma_Spoudwn_F = new javax.swing.JLabel();
         Dhlwseis = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         Dhlwseis_F = new javax.swing.JLabel();
         Log_out = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -107,50 +94,81 @@ public class Foititis extends javax.swing.JFrame {
             }
         });
 
-        Exit1.setBackground(new java.awt.Color(255, 255, 255));
-        Exit1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Exit1.setForeground(new java.awt.Color(255, 255, 255));
-        Exit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Exit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close_window_50px.png"))); // NOI18N
-        Exit1.setMaximumSize(new java.awt.Dimension(20, 20));
-        Exit1.setMinimumSize(new java.awt.Dimension(20, 20));
-        Exit1.setPreferredSize(new java.awt.Dimension(20, 20));
-        Exit1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Exit1MouseClicked(evt);
-            }
-        });
-
-        Minimize.setBackground(new java.awt.Color(255, 255, 255));
-        Minimize.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Minimize.setForeground(new java.awt.Color(255, 255, 255));
-        Minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/minimize_window_50px.png"))); // NOI18N
-        Minimize.setMaximumSize(new java.awt.Dimension(20, 20));
-        Minimize.setMinimumSize(new java.awt.Dimension(20, 20));
-        Minimize.setPreferredSize(new java.awt.Dimension(30, 30));
-        Minimize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MinimizeMouseClicked(evt);
-            }
-        });
-
-        Restore.setBackground(new java.awt.Color(255, 255, 255));
-        Restore.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Restore.setForeground(new java.awt.Color(255, 255, 255));
-        Restore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Restore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/restore_window_50px.png"))); // NOI18N
-        Restore.setMaximumSize(new java.awt.Dimension(20, 20));
-        Restore.setMinimumSize(new java.awt.Dimension(20, 20));
-        Restore.setPreferredSize(new java.awt.Dimension(20, 20));
-        Restore.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RestoreMouseClicked(evt);
-            }
-        });
-
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Untitled-1.jpg"))); // NOI18N
+
+        ButtonMinimize.setBackground(new java.awt.Color(60, 63, 65));
+        ButtonMinimize.setForeground(new java.awt.Color(255, 51, 102));
+
+        Minimize1.setBackground(new java.awt.Color(255, 255, 255));
+        Minimize1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Minimize1.setForeground(new java.awt.Color(255, 255, 255));
+        Minimize1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Minimize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/minimize_window_50px.png"))); // NOI18N
+        Minimize1.setMaximumSize(new java.awt.Dimension(20, 20));
+        Minimize1.setMinimumSize(new java.awt.Dimension(20, 20));
+        Minimize1.setPreferredSize(new java.awt.Dimension(30, 30));
+        Minimize1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Minimize1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Minimize1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Minimize1MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ButtonMinimizeLayout = new javax.swing.GroupLayout(ButtonMinimize);
+        ButtonMinimize.setLayout(ButtonMinimizeLayout);
+        ButtonMinimizeLayout.setHorizontalGroup(
+            ButtonMinimizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonMinimizeLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Minimize1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        ButtonMinimizeLayout.setVerticalGroup(
+            ButtonMinimizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Minimize1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        ButtonExit.setBackground(new java.awt.Color(60, 63, 65));
+
+        Exit.setBackground(new java.awt.Color(255, 255, 255));
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close_window_50px.png"))); // NOI18N
+        Exit.setMaximumSize(new java.awt.Dimension(20, 20));
+        Exit.setMinimumSize(new java.awt.Dimension(20, 20));
+        Exit.setPreferredSize(new java.awt.Dimension(20, 20));
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExitMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ButtonExitLayout = new javax.swing.GroupLayout(ButtonExit);
+        ButtonExit.setLayout(ButtonExitLayout);
+        ButtonExitLayout.setHorizontalGroup(
+            ButtonExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonExitLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        ButtonExitLayout.setVerticalGroup(
+            ButtonExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonExitLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout MovePanelLayout = new javax.swing.GroupLayout(MovePanel);
         MovePanel.setLayout(MovePanelLayout);
@@ -158,25 +176,19 @@ public class Foititis extends javax.swing.JFrame {
             MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MovePanelLayout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 730, Short.MAX_VALUE)
-                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Exit1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 761, Short.MAX_VALUE)
+                .addComponent(ButtonMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(ButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MovePanelLayout.setVerticalGroup(
             MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MovePanelLayout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(MovePanelLayout.createSequentialGroup()
-                .addGroup(MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Exit1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Restore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Minimize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(MovePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ButtonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9)
+                    .addComponent(ButtonMinimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(MovePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 30));
@@ -190,17 +202,6 @@ public class Foititis extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 33, Short.MAX_VALUE)
-        );
-
         Stoixeia_F.setText("Στοιχεία Φοιτητή");
 
         javax.swing.GroupLayout StoixeiaLayout = new javax.swing.GroupLayout(Stoixeia);
@@ -208,14 +209,14 @@ public class Foititis extends javax.swing.JFrame {
         StoixeiaLayout.setHorizontalGroup(
             StoixeiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(StoixeiaLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Stoixeia_F, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(Stoixeia_F, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
         );
         StoixeiaLayout.setVerticalGroup(
             StoixeiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Stoixeia_F, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StoixeiaLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(Stoixeia_F, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Programma_Spoudwn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -225,17 +226,6 @@ public class Foititis extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 33, Short.MAX_VALUE)
-        );
-
         Programma_Spoudwn_F.setText("Πρόγραμμα Σπουδών");
 
         javax.swing.GroupLayout Programma_SpoudwnLayout = new javax.swing.GroupLayout(Programma_Spoudwn);
@@ -243,14 +233,14 @@ public class Foititis extends javax.swing.JFrame {
         Programma_SpoudwnLayout.setHorizontalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Programma_SpoudwnLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Programma_Spoudwn_F, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(Programma_Spoudwn_F, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
         );
         Programma_SpoudwnLayout.setVerticalGroup(
             Programma_SpoudwnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Programma_Spoudwn_F, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Programma_SpoudwnLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(Programma_Spoudwn_F, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Dhlwseis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -260,17 +250,6 @@ public class Foititis extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 33, Short.MAX_VALUE)
-        );
-
         Dhlwseis_F.setText("Δηλώσεις");
 
         javax.swing.GroupLayout DhlwseisLayout = new javax.swing.GroupLayout(Dhlwseis);
@@ -278,14 +257,14 @@ public class Foititis extends javax.swing.JFrame {
         DhlwseisLayout.setHorizontalGroup(
             DhlwseisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DhlwseisLayout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Dhlwseis_F, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(Dhlwseis_F, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
         );
         DhlwseisLayout.setVerticalGroup(
             DhlwseisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Dhlwseis_F, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DhlwseisLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(Dhlwseis_F, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Log_out.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -325,7 +304,7 @@ public class Foititis extends javax.swing.JFrame {
         jPanel_LeftLayout.setVerticalGroup(
             jPanel_LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_LeftLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(7, 7, 7)
                 .addComponent(Stoixeia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Programma_Spoudwn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,28 +351,28 @@ public class Foititis extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(dm, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(last_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(last_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(address, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(semester, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(388, Short.MAX_VALUE))
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(dm, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,7 +404,7 @@ public class Foititis extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(dm))
-                .addGap(0, 274, Short.MAX_VALUE))
+                .addGap(0, 260, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 710, 480));
@@ -456,34 +435,6 @@ public class Foititis extends javax.swing.JFrame {
         new Login_Form().setState(java.awt.Frame.NORMAL);
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void Exit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Exit1MouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_Exit1MouseClicked
-
-    private void MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseClicked
-        this.setState(1);
-    }//GEN-LAST:event_MinimizeMouseClicked
-
-    private void RestoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoreMouseClicked
-        if(maximized)
-        {
-            //handle fullscreen - taskbar
-            Foititis.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            Foititis.this.setMaximizedBounds(env.getMaximumWindowBounds());
-
-            maximized = false;
-        }
-        else
-        {
-
-            setExtendedState(JFrame.NORMAL);
-            maximized = true;
-        }
-
-        //handle fullscreen - taskbar
-    }//GEN-LAST:event_RestoreMouseClicked
     private int xMouse, yMouse;
     private void MovePanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovePanelMouseDragged
         int x = evt.getXOnScreen();
@@ -495,6 +446,32 @@ public class Foititis extends javax.swing.JFrame {
         xMouse=evt.getX();
         yMouse=evt.getY();
     }//GEN-LAST:event_MovePanelMousePressed
+
+    private void Minimize1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Minimize1MouseClicked
+        this.setState(1);
+    }//GEN-LAST:event_Minimize1MouseClicked
+    public void changecolor(JPanel hover, Color rand){
+        hover.setBackground(rand);
+    }
+    private void Minimize1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Minimize1MouseEntered
+        changecolor(ButtonMinimize, new Color(25, 29, 74));
+    }//GEN-LAST:event_Minimize1MouseEntered
+
+    private void Minimize1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Minimize1MouseExited
+        changecolor(ButtonMinimize, new Color(60,63,65));
+    }//GEN-LAST:event_Minimize1MouseExited
+
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_ExitMouseClicked
+
+    private void ExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseEntered
+        changecolor(ButtonExit, new Color(25, 29, 74));
+    }//GEN-LAST:event_ExitMouseEntered
+
+    private void ExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseExited
+        changecolor(ButtonExit, new Color(60,63,65));
+    }//GEN-LAST:event_ExitMouseExited
 
     /**
      * @param args the command line arguments
@@ -539,15 +516,16 @@ public class Foititis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ButtonExit;
+    private javax.swing.JPanel ButtonMinimize;
     private javax.swing.JPanel Dhlwseis;
     private javax.swing.JLabel Dhlwseis_F;
-    private javax.swing.JLabel Exit1;
+    private javax.swing.JLabel Exit;
     private javax.swing.JPanel Log_out;
-    private javax.swing.JLabel Minimize;
+    private javax.swing.JLabel Minimize1;
     private javax.swing.JPanel MovePanel;
     private javax.swing.JPanel Programma_Spoudwn;
     private javax.swing.JLabel Programma_Spoudwn_F;
-    private javax.swing.JLabel Restore;
     private javax.swing.JPanel Stoixeia;
     private javax.swing.JLabel Stoixeia_F;
     private javax.swing.JLabel address;
@@ -562,10 +540,7 @@ public class Foititis extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel_Left;
     private javax.swing.JLabel last_name;
     private javax.swing.JLabel name;
