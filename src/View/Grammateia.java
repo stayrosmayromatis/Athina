@@ -259,11 +259,6 @@ public class Grammateia extends javax.swing.JFrame {
         );
 
         Diorthotikes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Diorthotikes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DiorthotikesMouseClicked(evt);
-            }
-        });
 
         Diorthotikes_Vathmologies_G1.setText("Εγκρίσεις  Βαθμολογίας");
         Diorthotikes_Vathmologies_G1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -378,10 +373,6 @@ public class Grammateia extends javax.swing.JFrame {
         new Login_Form().toFront();
         new Login_Form().setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void DiorthotikesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiorthotikesMouseClicked
-        
-    }//GEN-LAST:event_DiorthotikesMouseClicked
 
     private void Diorthotikes_Vathmologies_G1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Diorthotikes_Vathmologies_G1MouseClicked
         jDesktopPane1.removeAll();

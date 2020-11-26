@@ -18,7 +18,6 @@ public class Programma_Spoudwn extends javax.swing.JInternalFrame {
      */
     public Programma_Spoudwn() {
         initComponents();
-        
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);

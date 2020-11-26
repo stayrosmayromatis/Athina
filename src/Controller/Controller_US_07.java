@@ -26,7 +26,6 @@ public class Controller_US_07 {
     private Model.Grammateia grammateia=null;
     private Controller_US_03 con3;
     private ArrayList<DiorthosiVathmologias> temp=null;
-    
     public Controller_US_07() {
         con3=new Controller_US_03();
         this.grammateia=con3.returnGrammateia();
@@ -38,9 +37,9 @@ public class Controller_US_07 {
         String parts[]=new String[temp.size()];
         for (int i = 0; i < temp.size(); i++) 
         {
-              parts[i]=temp.get(i).getKathigitis().getOnoma()+" "+temp.get(i).getMathima()+" "+temp.get(i).getAM_Foititi()+" "+temp.get(i).getPalia_Vathm()+" "+temp.get(i).getNea_Vathm()+" "+temp.get(i).getEksetastiki();   
+            parts[i]=temp.get(i).getKathigitis().getOnoma()+" "+temp.get(i).getMathima()+" "+temp.get(i).getAM_Foititi()+" "+temp.get(i).getPalia_Vathm()+" "+temp.get(i).getNea_Vathm()+" "+temp.get(i).getEksetastiki();   
         }
-        return parts;    
+            return parts;         
     }
     
     public boolean checkDigSig(int idx) throws FileNotFoundException

@@ -17,8 +17,7 @@ public class Dilwseis_G extends javax.swing.JInternalFrame {
      * Creates new form Dilwseis
      */
     public Dilwseis_G() {
-        initComponents();
-        
+        initComponents(); 
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
