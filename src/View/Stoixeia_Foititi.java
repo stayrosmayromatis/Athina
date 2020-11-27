@@ -21,27 +21,7 @@ public class Stoixeia_Foititi extends javax.swing.JInternalFrame {
      * Creates new form Stoixeia_Foititi
      */
     public Stoixeia_Foititi() {
-        /*String onoma = "";
-        String epitheto = "";
-        String email = "";
-        String til = "";
-        String address = "";
-        int semester = 0;
-        int dm = 0;*/
         initComponents();
-        /*try {
-            File myObj = new File("C:\\Users\\kyriakos\\Desktop\\foitites.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-              String data = myReader.nextLine();
-              //System.out.println(data);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }*/
-        
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);

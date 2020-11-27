@@ -30,7 +30,10 @@ public class Controller_US_07 {
         con3=new Controller_US_03();
         this.grammateia=con3.returnGrammateia();
     }
-    
+    /*Επιστρέφω όλες τις υποβληθήσες δηλώσεις απο όλους τους καθηγητες
+    *διαβάζοντες τες απο το αρχείο με την .getDiorthoseisVathmologias()
+    *έπειτα τα επιστρέφω σαν έγγραφες ενος πινακα String
+    */
     public String[] getDiorthoseisVathmologias() throws FileNotFoundException
     {
         temp = this.grammateia.getDiorthoseisVathmologias();
@@ -41,12 +44,18 @@ public class Controller_US_07 {
         }
             return parts;         
     }
-    
+    /*
+    *Επιστρέφω boolean και ελέγχω την ψηφιακή υπογραφή του καθηγητή 
+    *που υπέβαλε την διόρθωση βαθμολογίας
+    */
     public boolean checkDigSig(int idx) throws FileNotFoundException
     {
         return temp.get(idx).checkDigitalSign(temp.get(idx));
     }
-    
+    /*
+    *Αρχειοθετώ την εγκεκριμένη διόρθωση βαθμολογίας στο έγγραφο history.txt
+    *και τροποποιώ την βαθμολογία του συγκεκριμένου φοιτητή στο έγγραφο vathmologies.txt
+    */
     public boolean SaveDiorthosiVathmologias(String selected)
     {
         File history = new File(".\\src\\Resources\\history.txt");
@@ -108,7 +117,9 @@ public class Controller_US_07 {
             return false;
         }
     }
-    
+    /*Λειτουργική μέθοδος που καλέιται 
+    *για να διαγράψει το αρχείο με τα αιτήματα κάθε φορά που τα εγκρίνει/δεν εγκρίνει η γραμματεία
+    */
     public void deleteAithmata()
     {
         Path path = FileSystems.getDefault().getPath(".\\src\\Resources\\aithmata.txt");

@@ -31,7 +31,10 @@ public class Controller_US_06 {
         this.ps = new ProgrammaSpoudwn("Tmhma Mhxanikwn Plhroforikhs DI.PA.E", "1/9/2019", "Tmhma Mhxaniwn Plhroforikhs");
         this.mathimata_kathigiti= new ArrayList<>();
     }
-    
+    /*
+    *Αναθέτουμε πρόχειρα μαθήματα σε καθηγητή ανάλογα 
+    *με το username του, και προσθέτω εξεταστικές σε κάθε μάθημα
+    */
     public void assignCoursesToTeacher()
     {
         ArrayList<Eksetastiki> prog1_ekse= new ArrayList<>();
@@ -140,11 +143,8 @@ public class Controller_US_06 {
         }   
     }
     /*
-    *Οταν περνιέται όλο το αντικείμενο του καθηγητή
-    *Τοτε επιστρέφεται όλο το ArrayList με τα μαθήματα του
-    *Αρα πρέπει να επεξεργαστταν περνιέται όλο το αντικείμενο του καθηγητή
-    *Τοτε επιστρέφεται όλο το ArrayList με τα μαεί στο UI όλο το arraylist ώστε να 
-    *Εμφανιστεί ο Τίτλος και ο Κωδικός (με ενα for και χρήση .get())
+    *Επιστρέφονται όλα τα μαθήματα του συγκεκριμένου καθηγητή που έκανε login
+    *σε μία ArrayList.Επειτα τα επιστρέφω στο UI σε μορφή string.
     */
     public String[] getMathimataOfKathigitis()
     {
@@ -158,10 +158,9 @@ public class Controller_US_06 {
         return mathimata_titles;
     }
     /*
-    *Οταν περνιέται το μάθημα που έκανε click ο καθηγητής
-    *Τοτε επιστρέφεται όλο το ArrayList με τις εξεταστικές που πέρνει μέρος το μάθημα
-    *Αρα πρέπει να επεξεργαστεί στο UI όλο το arraylist ώστε να 
-    *Εμφανιστεί ο Τίτλος της εξεταστικής ας πούμε
+    *Επιστρέφονται ως String οι εξεταστικές του κάθε μαθήματος
+    *που διδάσκει ο καθηγητής που έκανε login,δεχόμενο τον Τιτλο 
+    *του μαθήματος απο το UI.
     */
     public String[] getEksetastikesOfMathima(String titlos_mathimatos)
     {
@@ -181,9 +180,9 @@ public class Controller_US_06 {
         return null;
     }
     /*
-     *Εισάγωντας την τιμή απο το πλαίσιο, ένα μάθημα και μια εξεταστική απο τα επιστρεφόμενα Arraylists παραπάνω
-    *Τοτε διατρέχεται το αρχείο με τις βαθμολογίες
-    *Και επιστρέφεται πάλι σαν ArrayList o Foititis στην θέση 0 και η Βαθμολογία που είναι Double στην θέση 1
+     *Εχοντας τις παραμέτρους ψάχνω στο αρχείο (βάση) για την βαθμολογία του φοιτητή
+    *στο συγκεκριμενο μάθημα που επιλέχθηκε την συγκεκριμένη εξεταστική
+    *και εφόσον το βρώ , επιστρέφω την βαθμοολογία σαν Double.
     */
     public double getVathmologia(String AM,String titlos_mathimatos, String eksetastiki) throws FileNotFoundException
     {
@@ -210,8 +209,10 @@ public class Controller_US_06 {
         vathScanner.close();
         return -1;
     }
-    /*Τα αντικείμενα που πρέπει να περαστούν ως ορίσματα υπάρχουν στο UI σε μορφή ArrayLists
-    * Άρα τα περνάς επιλέγοντας την κατάλληλη θέση της ArrayList
+    /*
+    *Για τον συγκεκριμένο φοιτητη,για μια εξεταστικη και έχοντας την παλια και νέα βαθμολογία 
+    *δημιουργώ ένα αντικείμενο DiorthosiVathmologias το οποιο το προσθέτω στον καθηγητή
+    *αλλά δεν το αποστέλω στην γραμματεία ακόμη
     */
     public void EisagogiDiorthosisVathmologias(String titlos_mathimatos,String eksetastikh,String AM,Double Palia_Vathm,Double Nea_Vathm) throws FileNotFoundException
     {
@@ -228,7 +229,11 @@ public class Controller_US_06 {
             dv.setGrammateia(this.grammateia);
             this.kathigitis.addDiorthoshVathmologiasToKathigiti(dv);
     }
-    
+    /*
+    *Εδω αποστέλω το αντικέιμενο DiorthosiVaymologias στην γραμματεία
+    *η γραμματεία το γράφει σε ένα αρχείο και επιστρέφω μία boolean τιμή
+    *ανάλογως την έκβαση.
+    */
     public boolean SaveVathmologia()
     {
         return this.grammateia.createAithma(this.dv);

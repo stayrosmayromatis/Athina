@@ -38,7 +38,7 @@ public class Stoixeia_Kathigiti extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-
+    /*Φορτώνονται τα στοιχεία του καθηγητή που εκανε login με getter απο τον Controller*/
     public void loadDefaultValues()
     {
         name.setText(con3.KgetOnoma());

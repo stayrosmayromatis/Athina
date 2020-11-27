@@ -270,10 +270,12 @@ public class Diorthosi_Vathmologias extends javax.swing.JInternalFrame {
             
             if (con6.SaveVathmologia()) {
                 Message.setText("Η ΒΑΘΜΟΛΟΓΙΑ ΣΑΣ ΣΤΑΛΘΗΚΕ ΠΡΟΣ ΕΠΙΚΥΡΩΣΗ ΕΠΙΤΥΧΩΣ!");
-                AM_txt.setText(" ");
-                vath.setText(" ");
-                ins_vath.setText(" ");
+                AM_txt.setText("");
+                vath.setText("");
+                ins_vath.setText("");
                 save.setEnabled(false);
+                jList1.setSelectedIndex(-1);
+                eksetastikes.setSelectedIndex(-1);
             }
             else {
                 Message.setText("ΑΠΟΤΥΧΙΑ ΑΠΟΣΤΟΛΗΣ.");

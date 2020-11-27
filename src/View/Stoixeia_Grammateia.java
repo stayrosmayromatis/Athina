@@ -22,7 +22,7 @@ public class Stoixeia_Grammateia extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-    
+       /*Φορτώνονται τα στοιχεία της Γραμματείας που εκανε login με getter απο τον Controller του US03*/
     public void loadDefaultValues()
     {
         name.setText(con3.GgetUsername());

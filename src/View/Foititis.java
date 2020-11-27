@@ -19,6 +19,8 @@ import javax.swing.JPanel;
  */
 public class Foititis extends javax.swing.JFrame {
     Controller.Controller_US_03 con3;
+    
+    /*Φορτώνονται τα στοιχεία του Φοιτητή που εκανε login με getter απο τον Controller του US03*/
     public void loadDefaultValues()
     {
         name.setText(con3.FgetOnoma());
