@@ -36,7 +36,10 @@ public class Eksetastiki {
     public void setMathimata(ArrayList<Mathima> mathimata) {
         this.mathimata = mathimata;
     }
-    
-   
-
+    /*
+   public Eksetastiki getEksetastiki(Mathima mathima)
+   {
+       NOT IMPLEMENTED ON SELECTED US
+   }
+*/
 }

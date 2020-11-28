@@ -69,7 +69,7 @@ public class Grammateia extends Xristis {
     {
         dilwseis.add(currentDilwsi);
         try {
-            FileWriter myWriter = new FileWriter("C:\\Users\\kyriakos\\Desktop\\Enrollment.txt");
+            FileWriter myWriter = new FileWriter(".\\src\\Resources\\Enrollment.txt");
             myWriter.write("AM foititi : "+ foititis.getUsername()+"\n");
             for (int i = 0; i < currentDilwsi.getEnrolledCourses().size(); i++) {
                 myWriter.write(" ID: "+currentDilwsi.getEnrolledCourses().get(i).getID()+" Titlos: "+currentDilwsi.getEnrolledCourses().get(i).getTitlos()+"\n");

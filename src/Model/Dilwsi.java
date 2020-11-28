@@ -59,5 +59,10 @@ public class Dilwsi {
     public ArrayList<Mathima> getEnrolledCourses() {
         return lista_mathimatwn;
     }
-   
+   /*
+    public Dilwsi getCurrentDilwsi()
+    {
+        NOT IMPLEMENTED ON SELECTED US.
+    }
+    */
 }
